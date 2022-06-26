@@ -8,7 +8,7 @@
   ],
   "directus:extension": {
     "type": "endpoint",
-    "path": "../dist/endpoints/nydelic-invoices/index.js",
+    "path": "../dist/endpoints/nydelic-finances/index.js",
     "source": "src/index.ts",
     "host": "^9.12.2"
   },
