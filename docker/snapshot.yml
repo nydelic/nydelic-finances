@@ -1,0 +1,3140 @@
+version: 1
+directus: 9.12.2
+collections:
+  - collection: Address
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: Address
+      color: null
+      display_template: null
+      group: null
+      hidden: true
+      icon: null
+      item_duplication_fields: null
+      note: null
+      singleton: false
+      sort: null
+      sort_field: null
+      translations: null
+      unarchive_value: null
+    schema:
+      comment: null
+      name: Address
+      schema: public
+  - collection: Article
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: status
+      archive_value: archived
+      collapse: open
+      collection: Article
+      color: null
+      display_template: null
+      group: null
+      hidden: false
+      icon: null
+      item_duplication_fields: null
+      note: null
+      singleton: false
+      sort: null
+      sort_field: null
+      translations: null
+      unarchive_value: draft
+    schema:
+      comment: null
+      name: Article
+      schema: public
+  - collection: ArticleCategory
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: ArticleCategory
+      color: null
+      display_template: null
+      group: null
+      hidden: false
+      icon: null
+      item_duplication_fields: null
+      note: null
+      singleton: false
+      sort: null
+      sort_field: null
+      translations: null
+      unarchive_value: null
+    schema:
+      comment: null
+      name: ArticleCategory
+      schema: public
+  - collection: Article_ArticleCategory
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: Article_ArticleCategory
+      color: null
+      display_template: null
+      group: null
+      hidden: true
+      icon: import_export
+      item_duplication_fields: null
+      note: null
+      singleton: false
+      sort: null
+      sort_field: null
+      translations: null
+      unarchive_value: null
+    schema:
+      comment: null
+      name: Article_ArticleCategory
+      schema: public
+  - collection: Currency
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: status
+      archive_value: archived
+      collapse: open
+      collection: Currency
+      color: null
+      display_template: null
+      group: null
+      hidden: false
+      icon: null
+      item_duplication_fields: null
+      note: null
+      singleton: false
+      sort: null
+      sort_field: null
+      translations: null
+      unarchive_value: draft
+    schema:
+      comment: null
+      name: Currency
+      schema: public
+  - collection: Customer
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: Customer
+      color: null
+      display_template: null
+      group: null
+      hidden: false
+      icon: null
+      item_duplication_fields: null
+      note: null
+      singleton: false
+      sort: null
+      sort_field: null
+      translations: null
+      unarchive_value: null
+    schema:
+      comment: null
+      name: Customer
+      schema: public
+  - collection: FinanceAccount
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: status
+      archive_value: archived
+      collapse: open
+      collection: FinanceAccount
+      color: null
+      display_template: null
+      group: null
+      hidden: false
+      icon: null
+      item_duplication_fields: null
+      note: null
+      singleton: false
+      sort: null
+      sort_field: null
+      translations: null
+      unarchive_value: draft
+    schema:
+      comment: null
+      name: FinanceAccount
+      schema: public
+  - collection: Invoice
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: status
+      archive_value: archived
+      collapse: open
+      collection: Invoice
+      color: null
+      display_template: null
+      group: null
+      hidden: false
+      icon: null
+      item_duplication_fields: null
+      note: null
+      singleton: false
+      sort: null
+      sort_field: null
+      translations: null
+      unarchive_value: draft
+    schema:
+      comment: null
+      name: Invoice
+      schema: public
+  - collection: Invoice_Article
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: Invoice_Article
+      color: null
+      display_template: null
+      group: null
+      hidden: true
+      icon: import_export
+      item_duplication_fields: null
+      note: null
+      singleton: false
+      sort: null
+      sort_field: null
+      translations: null
+      unarchive_value: null
+    schema:
+      comment: null
+      name: Invoice_Article
+      schema: public
+  - collection: Transaction
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: Transaction
+      color: null
+      display_template: null
+      group: null
+      hidden: false
+      icon: null
+      item_duplication_fields: null
+      note: null
+      singleton: false
+      sort: null
+      sort_field: null
+      translations: null
+      unarchive_value: null
+    schema:
+      comment: null
+      name: Transaction
+      schema: public
+fields:
+  - collection: Address
+    field: city
+    meta:
+      collection: Address
+      conditions: null
+      display: null
+      display_options: null
+      field: city
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options:
+        iconLeft: location_city
+      readonly: false
+      required: true
+      sort: 6
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      comment: null
+      data_type: character varying
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: 255
+      name: city
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: Address
+    type: string
+  - collection: Address
+    field: country_code
+    meta:
+      collection: Address
+      conditions: null
+      display: null
+      display_options: null
+      field: country_code
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options:
+        iconLeft: outlined_flag
+      readonly: false
+      required: true
+      sort: 7
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: character varying
+      default_value: CH
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: 255
+      name: country_code
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: Address
+    type: string
+  - collection: Address
+    field: id
+    meta:
+      collection: Address
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: input
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: 1
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: integer
+      default_value: nextval('"Address_id_seq"'::regclass)
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: true
+      is_generated: false
+      is_nullable: false
+      is_primary_key: true
+      is_unique: true
+      max_length: null
+      name: id
+      numeric_precision: 32
+      numeric_scale: 0
+      schema: public
+      table: Address
+    type: integer
+  - collection: Address
+    field: postal_code
+    meta:
+      collection: Address
+      conditions: null
+      display: null
+      display_options: null
+      field: postal_code
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options:
+        iconLeft: markunread_mailbox
+      readonly: false
+      required: true
+      sort: 5
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      comment: null
+      data_type: character varying
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: 255
+      name: postal_code
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: Address
+    type: string
+  - collection: Address
+    field: street
+    meta:
+      collection: Address
+      conditions: null
+      display: null
+      display_options: null
+      field: street
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options:
+        iconLeft: add_road
+        placeholder: null
+      readonly: false
+      required: true
+      sort: 2
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      comment: null
+      data_type: character varying
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: 255
+      name: street
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: Address
+    type: string
+  - collection: Address
+    field: street_number
+    meta:
+      collection: Address
+      conditions: null
+      display: null
+      display_options: null
+      field: street_number
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options:
+        iconLeft: numbers
+      readonly: false
+      required: true
+      sort: 3
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      comment: null
+      data_type: character varying
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: 255
+      name: street_number
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: Address
+    type: string
+  - collection: Article
+    field: category
+    meta:
+      collection: Article
+      conditions: null
+      display: related-values
+      display_options:
+        template: '{{ArticleCategory_id.name}}'
+      field: category
+      group: null
+      hidden: false
+      interface: list-m2m
+      note: null
+      options:
+        template: '{{ArticleCategory_id.name}}'
+      readonly: false
+      required: false
+      sort: 4
+      special:
+        - m2m
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema: null
+    type: alias
+  - collection: Article
+    field: id
+    meta:
+      collection: Article
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: input
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: 1
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: integer
+      default_value: nextval('"Article_id_seq"'::regclass)
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: true
+      is_generated: false
+      is_nullable: false
+      is_primary_key: true
+      is_unique: true
+      max_length: null
+      name: id
+      numeric_precision: 32
+      numeric_scale: 0
+      schema: public
+      table: Article
+    type: integer
+  - collection: Article
+    field: name
+    meta:
+      collection: Article
+      conditions: null
+      display: null
+      display_options: null
+      field: name
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options:
+        iconLeft: abc
+      readonly: false
+      required: true
+      sort: 2
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: character varying
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: 255
+      name: name
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: Article
+    type: string
+  - collection: Article
+    field: price
+    meta:
+      collection: Article
+      conditions: null
+      display: null
+      display_options: null
+      field: price
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options:
+        iconLeft: attach_money
+        min: 0
+      readonly: false
+      required: true
+      sort: 3
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: numeric
+      default_value: 0
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: price
+      numeric_precision: 10
+      numeric_scale: 2
+      schema: public
+      table: Article
+    type: decimal
+  - collection: Article
+    field: status
+    meta:
+      collection: Article
+      conditions: null
+      display: labels
+      display_options:
+        choices:
+          - text: $t:published
+            value: published
+            foreground: '#FFFFFF'
+            background: var(--primary)
+          - text: $t:draft
+            value: draft
+            foreground: '#18222F'
+            background: '#D3DAE4'
+          - text: $t:archived
+            value: archived
+            foreground: '#FFFFFF'
+            background: var(--warning)
+        showAsDot: true
+      field: status
+      group: null
+      hidden: false
+      interface: select-dropdown
+      note: null
+      options:
+        choices:
+          - text: $t:published
+            value: published
+          - text: $t:draft
+            value: draft
+          - text: $t:archived
+            value: archived
+      readonly: false
+      required: false
+      sort: 5
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: character varying
+      default_value: draft
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: false
+      is_primary_key: false
+      is_unique: false
+      max_length: 255
+      name: status
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: Article
+    type: string
+  - collection: ArticleCategory
+    field: id
+    meta:
+      collection: ArticleCategory
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: input
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: null
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: integer
+      default_value: nextval('"ArticleCategory_id_seq"'::regclass)
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: true
+      is_generated: false
+      is_nullable: false
+      is_primary_key: true
+      is_unique: true
+      max_length: null
+      name: id
+      numeric_precision: 32
+      numeric_scale: 0
+      schema: public
+      table: ArticleCategory
+    type: integer
+  - collection: ArticleCategory
+    field: name
+    meta:
+      collection: ArticleCategory
+      conditions: null
+      display: null
+      display_options: null
+      field: name
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options:
+        iconLeft: abc
+        placeholder: null
+      readonly: false
+      required: true
+      sort: null
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: character varying
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: 255
+      name: name
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: ArticleCategory
+    type: string
+  - collection: Article_ArticleCategory
+    field: ArticleCategory_id
+    meta:
+      collection: Article_ArticleCategory
+      conditions: null
+      display: null
+      display_options: null
+      field: ArticleCategory_id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: null
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: integer
+      default_value: null
+      foreign_key_column: id
+      foreign_key_schema: public
+      foreign_key_table: ArticleCategory
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: ArticleCategory_id
+      numeric_precision: 32
+      numeric_scale: 0
+      schema: public
+      table: Article_ArticleCategory
+    type: integer
+  - collection: Article_ArticleCategory
+    field: Article_id
+    meta:
+      collection: Article_ArticleCategory
+      conditions: null
+      display: null
+      display_options: null
+      field: Article_id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: null
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: integer
+      default_value: null
+      foreign_key_column: id
+      foreign_key_schema: public
+      foreign_key_table: Article
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: Article_id
+      numeric_precision: 32
+      numeric_scale: 0
+      schema: public
+      table: Article_ArticleCategory
+    type: integer
+  - collection: Article_ArticleCategory
+    field: id
+    meta:
+      collection: Article_ArticleCategory
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: null
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: integer
+      default_value: nextval('"Article_ArticleCategory_id_seq"'::regclass)
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: true
+      is_generated: false
+      is_nullable: false
+      is_primary_key: true
+      is_unique: true
+      max_length: null
+      name: id
+      numeric_precision: 32
+      numeric_scale: 0
+      schema: public
+      table: Article_ArticleCategory
+    type: integer
+  - collection: Currency
+    field: code
+    meta:
+      collection: Currency
+      conditions: null
+      display: null
+      display_options: null
+      field: code
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options:
+        iconLeft: abc
+        trim: true
+      readonly: false
+      required: true
+      sort: 3
+      special: null
+      translations: null
+      validation:
+        _and:
+          - code:
+              _regex: '[A-Z]{3}'
+      validation_message: Must be a string of three uppercase letters
+      width: full
+    schema:
+      comment: null
+      data_type: character varying
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: true
+      max_length: 3
+      name: code
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: Currency
+    type: string
+  - collection: Currency
+    field: id
+    meta:
+      collection: Currency
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: input
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: 1
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: integer
+      default_value: nextval('"Currency_id_seq"'::regclass)
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: true
+      is_generated: false
+      is_nullable: false
+      is_primary_key: true
+      is_unique: true
+      max_length: null
+      name: id
+      numeric_precision: 32
+      numeric_scale: 0
+      schema: public
+      table: Currency
+    type: integer
+  - collection: Currency
+    field: name
+    meta:
+      collection: Currency
+      conditions: null
+      display: null
+      display_options: null
+      field: name
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options:
+        iconLeft: abc
+      readonly: false
+      required: true
+      sort: 2
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: character varying
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: 255
+      name: name
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: Currency
+    type: string
+  - collection: Currency
+    field: rate
+    meta:
+      collection: Currency
+      conditions: []
+      display: null
+      display_options: null
+      field: rate
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options:
+        iconLeft: multiple_stop
+        min: 0
+      readonly: false
+      required: true
+      sort: 4
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: real
+      default_value: 1
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: rate
+      numeric_precision: 24
+      numeric_scale: null
+      schema: public
+      table: Currency
+    type: float
+  - collection: Currency
+    field: status
+    meta:
+      collection: Currency
+      conditions: null
+      display: labels
+      display_options:
+        choices:
+          - text: $t:published
+            value: published
+            foreground: '#FFFFFF'
+            background: var(--primary)
+          - text: $t:draft
+            value: draft
+            foreground: '#18222F'
+            background: '#D3DAE4'
+          - text: $t:archived
+            value: archived
+            foreground: '#FFFFFF'
+            background: var(--warning)
+        showAsDot: true
+      field: status
+      group: null
+      hidden: false
+      interface: select-dropdown
+      note: null
+      options:
+        choices:
+          - text: $t:published
+            value: published
+          - text: $t:draft
+            value: draft
+          - text: $t:archived
+            value: archived
+      readonly: false
+      required: false
+      sort: 5
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: character varying
+      default_value: draft
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: false
+      is_primary_key: false
+      is_unique: false
+      max_length: 255
+      name: status
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: Currency
+    type: string
+  - collection: Customer
+    field: address
+    meta:
+      collection: Customer
+      conditions: null
+      display: null
+      display_options: null
+      field: address
+      group: null
+      hidden: false
+      interface: select-dropdown-m2o
+      note: null
+      options:
+        template: "{{street}}\_{{streetNumber}}\_{{postal_code}}\_{{city}}"
+      readonly: false
+      required: false
+      sort: 5
+      special:
+        - m2o
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: integer
+      default_value: null
+      foreign_key_column: id
+      foreign_key_schema: public
+      foreign_key_table: Address
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: address
+      numeric_precision: 32
+      numeric_scale: 0
+      schema: public
+      table: Customer
+    type: integer
+  - collection: Customer
+    field: email
+    meta:
+      collection: Customer
+      conditions: null
+      display: null
+      display_options: null
+      field: email
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options:
+        iconLeft: mail
+      readonly: false
+      required: true
+      sort: 1
+      special: null
+      translations: null
+      validation:
+        _and:
+          - email:
+              _regex: >-
+                (?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])
+      validation_message: Must be a valid email
+      width: full
+    schema:
+      comment: null
+      data_type: character varying
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: 255
+      name: email
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: Customer
+    type: string
+  - collection: Customer
+    field: first_name
+    meta:
+      collection: Customer
+      conditions: null
+      display: null
+      display_options: null
+      field: first_name
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options:
+        iconLeft: abc
+        placeholder: null
+      readonly: false
+      required: true
+      sort: 2
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      comment: null
+      data_type: character varying
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: 255
+      name: first_name
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: Customer
+    type: string
+  - collection: Customer
+    field: gender
+    meta:
+      collection: Customer
+      conditions: null
+      display: null
+      display_options: null
+      field: gender
+      group: null
+      hidden: false
+      interface: select-dropdown
+      note: null
+      options:
+        allowNone: true
+        allowOther: true
+        choices:
+          - text: Female
+            value: female
+          - text: Male
+            value: male
+        icon: transgender
+      readonly: false
+      required: false
+      sort: 4
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: character varying
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: 255
+      name: gender
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: Customer
+    type: string
+  - collection: Customer
+    field: id
+    meta:
+      collection: Customer
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: input
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: 8
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: integer
+      default_value: nextval('"Customer_id_seq"'::regclass)
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: true
+      is_generated: false
+      is_nullable: false
+      is_primary_key: true
+      is_unique: true
+      max_length: null
+      name: id
+      numeric_precision: 32
+      numeric_scale: 0
+      schema: public
+      table: Customer
+    type: integer
+  - collection: Customer
+    field: language
+    meta:
+      collection: Customer
+      conditions: null
+      display: null
+      display_options: null
+      field: language
+      group: null
+      hidden: false
+      interface: select-dropdown
+      note: null
+      options:
+        allowOther: true
+        choices:
+          - text: Deutsch
+            value: de
+          - text: English
+            value: en
+          - text: Français
+            value: fr
+          - text: Italiano
+            value: it
+        icon: language
+      readonly: false
+      required: true
+      sort: 6
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      comment: null
+      data_type: character varying
+      default_value: de
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: 255
+      name: language
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: Customer
+    type: string
+  - collection: Customer
+    field: last_name
+    meta:
+      collection: Customer
+      conditions: null
+      display: null
+      display_options: null
+      field: last_name
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options:
+        iconLeft: abc
+      readonly: false
+      required: true
+      sort: 3
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      comment: null
+      data_type: character varying
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: 255
+      name: last_name
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: Customer
+    type: string
+  - collection: Customer
+    field: notice-msaco5
+    meta:
+      collection: Customer
+      conditions: null
+      display: null
+      display_options: null
+      field: notice-msaco5
+      group: null
+      hidden: false
+      interface: presentation-notice
+      note: null
+      options:
+        icon: info
+        text: Please enter short code such as "de" or "en"
+      readonly: false
+      required: false
+      sort: 7
+      special:
+        - alias
+        - no-data
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema: null
+    type: alias
+  - collection: FinanceAccount
+    field: account_system_number
+    meta:
+      collection: FinanceAccount
+      conditions: null
+      display: null
+      display_options: null
+      field: account_system_number
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options:
+        iconLeft: numbers
+        max: 9999
+        min: 0
+      readonly: false
+      required: true
+      sort: 3
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: integer
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: account_system_number
+      numeric_precision: 32
+      numeric_scale: 0
+      schema: public
+      table: FinanceAccount
+    type: integer
+  - collection: FinanceAccount
+    field: id
+    meta:
+      collection: FinanceAccount
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: input
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: 1
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: integer
+      default_value: nextval('"FinanceAccount_id_seq"'::regclass)
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: true
+      is_generated: false
+      is_nullable: false
+      is_primary_key: true
+      is_unique: true
+      max_length: null
+      name: id
+      numeric_precision: 32
+      numeric_scale: 0
+      schema: public
+      table: FinanceAccount
+    type: integer
+  - collection: FinanceAccount
+    field: name
+    meta:
+      collection: FinanceAccount
+      conditions: null
+      display: null
+      display_options: null
+      field: name
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options:
+        iconLeft: abc
+      readonly: false
+      required: true
+      sort: 2
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: character varying
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: 255
+      name: name
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: FinanceAccount
+    type: string
+  - collection: FinanceAccount
+    field: status
+    meta:
+      collection: FinanceAccount
+      conditions: null
+      display: labels
+      display_options:
+        choices:
+          - text: $t:published
+            value: published
+            foreground: '#FFFFFF'
+            background: var(--primary)
+          - text: $t:draft
+            value: draft
+            foreground: '#18222F'
+            background: '#D3DAE4'
+          - text: $t:archived
+            value: archived
+            foreground: '#FFFFFF'
+            background: var(--warning)
+        showAsDot: true
+      field: status
+      group: null
+      hidden: false
+      interface: select-dropdown
+      note: null
+      options:
+        choices:
+          - text: $t:published
+            value: published
+          - text: $t:draft
+            value: draft
+          - text: $t:archived
+            value: archived
+      readonly: false
+      required: false
+      sort: 5
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: character varying
+      default_value: draft
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: false
+      is_primary_key: false
+      is_unique: false
+      max_length: 255
+      name: status
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: FinanceAccount
+    type: string
+  - collection: FinanceAccount
+    field: type
+    meta:
+      collection: FinanceAccount
+      conditions: null
+      display: null
+      display_options: null
+      field: type
+      group: null
+      hidden: false
+      interface: select-dropdown
+      note: null
+      options:
+        choices:
+          - text: Revenue
+            value: revenue
+          - text: Expenditure
+            value: expenditure
+          - text: Asset
+            value: asset
+          - text: Liabilities
+            value: liabilities
+      readonly: false
+      required: true
+      sort: 4
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: character varying
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: 255
+      name: type
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: FinanceAccount
+    type: string
+  - collection: Invoice
+    field: article
+    meta:
+      collection: Invoice
+      conditions: null
+      display: related-values
+      display_options:
+        template: "{{Article_id.name}}\_({{count}})"
+      field: article
+      group: null
+      hidden: false
+      interface: list-m2m
+      note: null
+      options:
+        template: "{{Article_id.name}}\_{{count}}x{{Article_id.price}}"
+      readonly: false
+      required: true
+      sort: 4
+      special:
+        - m2m
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema: null
+    type: alias
+  - collection: Invoice
+    field: comment
+    meta:
+      collection: Invoice
+      conditions: null
+      display: null
+      display_options: null
+      field: comment
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options:
+        iconLeft: comment
+        trim: true
+      readonly: false
+      required: false
+      sort: 5
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: text
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: comment
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: Invoice
+    type: text
+  - collection: Invoice
+    field: create_date
+    meta:
+      collection: Invoice
+      conditions: null
+      display: datetime
+      display_options:
+        format: short
+      field: create_date
+      group: null
+      hidden: false
+      interface: datetime
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: 12
+      special:
+        - date-created
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: timestamp without time zone
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: true
+      max_length: null
+      name: create_date
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: Invoice
+    type: dateTime
+  - collection: Invoice
+    field: customer
+    meta:
+      collection: Invoice
+      conditions: null
+      display: related-values
+      display_options:
+        template: "{{first_name}}\_{{last_name}}"
+      field: customer
+      group: null
+      hidden: false
+      interface: select-dropdown-m2o
+      note: null
+      options:
+        template: "{{first_name}}\_{{last_name}}"
+      readonly: false
+      required: true
+      sort: 3
+      special:
+        - m2o
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: integer
+      default_value: null
+      foreign_key_column: id
+      foreign_key_schema: public
+      foreign_key_table: Customer
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: customer
+      numeric_precision: 32
+      numeric_scale: 0
+      schema: public
+      table: Invoice
+    type: integer
+  - collection: Invoice
+    field: date_due
+    meta:
+      collection: Invoice
+      conditions: null
+      display: datetime
+      display_options:
+        format: short
+      field: date_due
+      group: null
+      hidden: false
+      interface: datetime
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 9
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      comment: null
+      data_type: timestamp without time zone
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: date_due
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: Invoice
+    type: dateTime
+  - collection: Invoice
+    field: date_issued
+    meta:
+      collection: Invoice
+      conditions: null
+      display: datetime
+      display_options:
+        format: short
+      field: date_issued
+      group: null
+      hidden: false
+      interface: datetime
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 8
+      special:
+        - date-created
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      comment: null
+      data_type: timestamp without time zone
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: date_issued
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: Invoice
+    type: dateTime
+  - collection: Invoice
+    field: id
+    meta:
+      collection: Invoice
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: input
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: 1
+      special:
+        - uuid
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: uuid
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: false
+      is_primary_key: true
+      is_unique: true
+      max_length: null
+      name: id
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: Invoice
+    type: uuid
+  - collection: Invoice
+    field: recurring
+    meta:
+      collection: Invoice
+      conditions: null
+      display: null
+      display_options:
+        choices:
+          - text: Never
+          - text: Monthly
+            value: monthly
+          - text: Yearly
+            value: yearly
+          - text: Weekly
+            value: weekly
+        conditionalFormatting: null
+      field: recurring
+      group: null
+      hidden: false
+      interface: select-dropdown
+      note: null
+      options:
+        allowNone: true
+        choices:
+          - text: Weekly
+            value: weekly
+          - text: Monthly
+            value: monthly
+          - text: Yearly
+            value: yearly
+        icon: event_repeat
+      readonly: false
+      required: false
+      sort: 7
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      comment: null
+      data_type: character varying
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: 255
+      name: recurring
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: Invoice
+    type: string
+  - collection: Invoice
+    field: status
+    meta:
+      collection: Invoice
+      conditions: null
+      display: labels
+      display_options:
+        choices:
+          - text: Draft
+            value: draft
+            foreground: '#18222F'
+            background: '#E4E2D3'
+          - text: Sent
+            value: sent
+            foreground: '#FFFFFF'
+            background: '#3399FF'
+          - text: Payment Pending
+            value: payment_pending
+          - text: Payment Received
+            value: payment_received
+            foreground: '#FFFFFF'
+            background: '#2ECDA7'
+        showAsDot: true
+      field: status
+      group: null
+      hidden: false
+      interface: select-dropdown
+      note: null
+      options:
+        choices:
+          - text: Draft
+            value: draft
+          - text: Sent
+            value: sent
+          - text: Payment Pending
+            value: payment_pending
+          - text: Payment Received
+            value: payment_received
+      readonly: false
+      required: false
+      sort: 6
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      comment: null
+      data_type: character varying
+      default_value: draft
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: false
+      is_primary_key: false
+      is_unique: false
+      max_length: 255
+      name: status
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: Invoice
+    type: string
+  - collection: Invoice
+    field: superseded
+    meta:
+      collection: Invoice
+      conditions: null
+      display: boolean
+      display_options: null
+      field: superseded
+      group: null
+      hidden: true
+      interface: boolean
+      note: null
+      options: null
+      readonly: true
+      required: true
+      sort: 10
+      special:
+        - cast-boolean
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: boolean
+      default_value: false
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: superseded
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: Invoice
+    type: boolean
+  - collection: Invoice
+    field: title
+    meta:
+      collection: Invoice
+      conditions: null
+      display: null
+      display_options: null
+      field: title
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options:
+        iconLeft: title
+        trim: true
+      readonly: false
+      required: true
+      sort: 2
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: character varying
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: 255
+      name: title
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: Invoice
+    type: string
+  - collection: Invoice
+    field: user_owner
+    meta:
+      collection: Invoice
+      conditions: null
+      display: related-values
+      display_options:
+        template: "{{first_name}}\_{{last_name}}"
+      field: user_owner
+      group: null
+      hidden: false
+      interface: select-dropdown-m2o
+      note: null
+      options:
+        template: "{{first_name}}\_{{last_name}}"
+      readonly: false
+      required: false
+      sort: null
+      special:
+        - m2o
+        - user-created
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: uuid
+      default_value: null
+      foreign_key_column: id
+      foreign_key_schema: public
+      foreign_key_table: directus_users
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: user_owner
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: Invoice
+    type: uuid
+  - collection: Invoice
+    field: vat
+    meta:
+      collection: Invoice
+      conditions: null
+      display: null
+      display_options: null
+      field: vat
+      group: null
+      hidden: false
+      interface: select-dropdown
+      note: null
+      options:
+        allowNone: true
+        choices:
+          - text: Normal 2021
+            value: vat_normal_2021
+          - text: Reduced 2021
+            value: vat_reduced_2021
+          - text: Special 2021
+            value: vat_special_2021
+      readonly: false
+      required: false
+      sort: 11
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: character varying
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: 255
+      name: vat
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: Invoice
+    type: string
+  - collection: Invoice_Article
+    field: Article_id
+    meta:
+      collection: Invoice_Article
+      conditions: null
+      display: null
+      display_options: null
+      field: Article_id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: null
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: integer
+      default_value: null
+      foreign_key_column: id
+      foreign_key_schema: public
+      foreign_key_table: Article
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: Article_id
+      numeric_precision: 32
+      numeric_scale: 0
+      schema: public
+      table: Invoice_Article
+    type: integer
+  - collection: Invoice_Article
+    field: Invoice_id
+    meta:
+      collection: Invoice_Article
+      conditions: null
+      display: null
+      display_options: null
+      field: Invoice_id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: null
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: uuid
+      default_value: null
+      foreign_key_column: id
+      foreign_key_schema: public
+      foreign_key_table: Invoice
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: Invoice_id
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: Invoice_Article
+    type: uuid
+  - collection: Invoice_Article
+    field: count
+    meta:
+      collection: Invoice_Article
+      conditions: null
+      display: null
+      display_options: null
+      field: count
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options:
+        min: 1
+      readonly: false
+      required: true
+      sort: null
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: integer
+      default_value: 1
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: count
+      numeric_precision: 32
+      numeric_scale: 0
+      schema: public
+      table: Invoice_Article
+    type: integer
+  - collection: Invoice_Article
+    field: id
+    meta:
+      collection: Invoice_Article
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: null
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: integer
+      default_value: nextval('"Invoice_Article_id_seq"'::regclass)
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: true
+      is_generated: false
+      is_nullable: false
+      is_primary_key: true
+      is_unique: true
+      max_length: null
+      name: id
+      numeric_precision: 32
+      numeric_scale: 0
+      schema: public
+      table: Invoice_Article
+    type: integer
+  - collection: Invoice_Article
+    field: price
+    meta:
+      collection: Invoice_Article
+      conditions: null
+      display: null
+      display_options: null
+      field: price
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options:
+        iconLeft: attach_money
+        min: 0
+      readonly: false
+      required: true
+      sort: null
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: numeric
+      default_value: 0
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: price
+      numeric_precision: 10
+      numeric_scale: 2
+      schema: public
+      table: Invoice_Article
+    type: decimal
+  - collection: Transaction
+    field: amount
+    meta:
+      collection: Transaction
+      conditions: null
+      display: null
+      display_options: null
+      field: amount
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options:
+        iconLeft: attach_money
+        max: null
+        min: 0
+      readonly: false
+      required: true
+      sort: null
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: real
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: amount
+      numeric_precision: 24
+      numeric_scale: null
+      schema: public
+      table: Transaction
+    type: float
+  - collection: Transaction
+    field: credit_finance_account
+    meta:
+      collection: Transaction
+      conditions: null
+      display: related-values
+      display_options:
+        template: "{{account_system_number}}\_{{name}}"
+      field: credit_finance_account
+      group: null
+      hidden: false
+      interface: select-dropdown-m2o
+      note: null
+      options:
+        template: "{{account_system_number}}\_{{name}}"
+      readonly: false
+      required: true
+      sort: null
+      special:
+        - m2o
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      comment: null
+      data_type: integer
+      default_value: null
+      foreign_key_column: id
+      foreign_key_schema: public
+      foreign_key_table: FinanceAccount
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: credit_finance_account
+      numeric_precision: 32
+      numeric_scale: 0
+      schema: public
+      table: Transaction
+    type: integer
+  - collection: Transaction
+    field: currency
+    meta:
+      collection: Transaction
+      conditions: null
+      display: related-values
+      display_options:
+        template: '{{code}}'
+      field: currency
+      group: null
+      hidden: false
+      interface: select-dropdown-m2o
+      note: null
+      options:
+        template: "{{name}}\_({{code}})"
+      readonly: false
+      required: true
+      sort: null
+      special:
+        - m2o
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: integer
+      default_value: null
+      foreign_key_column: id
+      foreign_key_schema: public
+      foreign_key_table: Currency
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: currency
+      numeric_precision: 32
+      numeric_scale: 0
+      schema: public
+      table: Transaction
+    type: integer
+  - collection: Transaction
+    field: customer
+    meta:
+      collection: Transaction
+      conditions: null
+      display: related-values
+      display_options:
+        template: "{{first_name}}\_{{last_name}}"
+      field: customer
+      group: null
+      hidden: false
+      interface: select-dropdown-m2o
+      note: null
+      options:
+        template: "{{first_name}}\_{{last_name}}"
+      readonly: false
+      required: true
+      sort: null
+      special:
+        - m2o
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: integer
+      default_value: null
+      foreign_key_column: id
+      foreign_key_schema: public
+      foreign_key_table: Customer
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: customer
+      numeric_precision: 32
+      numeric_scale: 0
+      schema: public
+      table: Transaction
+    type: integer
+  - collection: Transaction
+    field: date
+    meta:
+      collection: Transaction
+      conditions: null
+      display: datetime
+      display_options:
+        relative: true
+      field: date
+      group: null
+      hidden: false
+      interface: datetime
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: null
+      special:
+        - date-created
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: timestamp without time zone
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: date
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: Transaction
+    type: dateTime
+  - collection: Transaction
+    field: debit_finance_account
+    meta:
+      collection: Transaction
+      conditions: null
+      display: related-values
+      display_options:
+        template: "{{account_system_number}}\_{{name}}"
+      field: debit_finance_account
+      group: null
+      hidden: false
+      interface: select-dropdown-m2o
+      note: null
+      options:
+        template: "{{account_system_number}}\_{{name}}"
+      readonly: false
+      required: true
+      sort: null
+      special:
+        - m2o
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      comment: null
+      data_type: integer
+      default_value: null
+      foreign_key_column: id
+      foreign_key_schema: public
+      foreign_key_table: FinanceAccount
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: debit_finance_account
+      numeric_precision: 32
+      numeric_scale: 0
+      schema: public
+      table: Transaction
+    type: integer
+  - collection: Transaction
+    field: description
+    meta:
+      collection: Transaction
+      conditions: null
+      display: null
+      display_options: null
+      field: description
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options:
+        iconLeft: comment
+      readonly: false
+      required: false
+      sort: null
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: character varying
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: 255
+      name: description
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: Transaction
+    type: string
+  - collection: Transaction
+    field: id
+    meta:
+      collection: Transaction
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: input
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: null
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: integer
+      default_value: nextval('"Transaction_id_seq"'::regclass)
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: true
+      is_generated: false
+      is_nullable: false
+      is_primary_key: true
+      is_unique: true
+      max_length: null
+      name: id
+      numeric_precision: 32
+      numeric_scale: 0
+      schema: public
+      table: Transaction
+    type: integer
+  - collection: directus_dashboards
+    field: color
+    meta: null
+    schema:
+      comment: null
+      data_type: character varying
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: 255
+      name: color
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: directus_dashboards
+    type: string
+relations:
+  - collection: Article_ArticleCategory
+    field: ArticleCategory_id
+    meta:
+      junction_field: Article_id
+      many_collection: Article_ArticleCategory
+      many_field: ArticleCategory_id
+      one_allowed_collections: null
+      one_collection: ArticleCategory
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: null
+      sort_field: null
+    related_collection: ArticleCategory
+    schema:
+      column: ArticleCategory_id
+      constraint_name: article_articlecategory_articlecategory_id_foreign
+      foreign_key_column: id
+      foreign_key_schema: public
+      foreign_key_table: ArticleCategory
+      on_delete: SET NULL
+      on_update: NO ACTION
+      table: Article_ArticleCategory
+  - collection: Article_ArticleCategory
+    field: Article_id
+    meta:
+      junction_field: ArticleCategory_id
+      many_collection: Article_ArticleCategory
+      many_field: Article_id
+      one_allowed_collections: null
+      one_collection: Article
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: category
+      sort_field: null
+    related_collection: Article
+    schema:
+      column: Article_id
+      constraint_name: article_articlecategory_article_id_foreign
+      foreign_key_column: id
+      foreign_key_schema: public
+      foreign_key_table: Article
+      on_delete: SET NULL
+      on_update: NO ACTION
+      table: Article_ArticleCategory
+  - collection: Customer
+    field: address
+    meta:
+      junction_field: null
+      many_collection: Customer
+      many_field: address
+      one_allowed_collections: null
+      one_collection: Address
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: null
+      sort_field: null
+    related_collection: Address
+    schema:
+      column: address
+      constraint_name: customer_address_foreign
+      foreign_key_column: id
+      foreign_key_schema: public
+      foreign_key_table: Address
+      on_delete: SET NULL
+      on_update: NO ACTION
+      table: Customer
+  - collection: Invoice
+    field: customer
+    meta:
+      junction_field: null
+      many_collection: Invoice
+      many_field: customer
+      one_allowed_collections: null
+      one_collection: Customer
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: null
+      sort_field: null
+    related_collection: Customer
+    schema:
+      column: customer
+      constraint_name: invoice_customer_foreign
+      foreign_key_column: id
+      foreign_key_schema: public
+      foreign_key_table: Customer
+      on_delete: NO ACTION
+      on_update: NO ACTION
+      table: Invoice
+  - collection: Invoice
+    field: user_owner
+    meta:
+      junction_field: null
+      many_collection: Invoice
+      many_field: user_owner
+      one_allowed_collections: null
+      one_collection: directus_users
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: null
+      sort_field: null
+    related_collection: directus_users
+    schema:
+      column: user_owner
+      constraint_name: invoice_user_owner_foreign
+      foreign_key_column: id
+      foreign_key_schema: public
+      foreign_key_table: directus_users
+      on_delete: NO ACTION
+      on_update: NO ACTION
+      table: Invoice
+  - collection: Invoice_Article
+    field: Article_id
+    meta:
+      junction_field: Invoice_id
+      many_collection: Invoice_Article
+      many_field: Article_id
+      one_allowed_collections: null
+      one_collection: Article
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: null
+      sort_field: null
+    related_collection: Article
+    schema:
+      column: Article_id
+      constraint_name: invoice_article_article_id_foreign
+      foreign_key_column: id
+      foreign_key_schema: public
+      foreign_key_table: Article
+      on_delete: NO ACTION
+      on_update: NO ACTION
+      table: Invoice_Article
+  - collection: Invoice_Article
+    field: Invoice_id
+    meta:
+      junction_field: Article_id
+      many_collection: Invoice_Article
+      many_field: Invoice_id
+      one_allowed_collections: null
+      one_collection: Invoice
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: article
+      sort_field: null
+    related_collection: Invoice
+    schema:
+      column: Invoice_id
+      constraint_name: invoice_article_invoice_id_foreign
+      foreign_key_column: id
+      foreign_key_schema: public
+      foreign_key_table: Invoice
+      on_delete: CASCADE
+      on_update: NO ACTION
+      table: Invoice_Article
+  - collection: Transaction
+    field: credit_finance_account
+    meta:
+      junction_field: null
+      many_collection: Transaction
+      many_field: credit_finance_account
+      one_allowed_collections: null
+      one_collection: FinanceAccount
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: null
+      sort_field: null
+    related_collection: FinanceAccount
+    schema:
+      column: credit_finance_account
+      constraint_name: transaction_credit_finance_account_foreign
+      foreign_key_column: id
+      foreign_key_schema: public
+      foreign_key_table: FinanceAccount
+      on_delete: NO ACTION
+      on_update: NO ACTION
+      table: Transaction
+  - collection: Transaction
+    field: currency
+    meta:
+      junction_field: null
+      many_collection: Transaction
+      many_field: currency
+      one_allowed_collections: null
+      one_collection: Currency
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: null
+      sort_field: null
+    related_collection: Currency
+    schema:
+      column: currency
+      constraint_name: transaction_currency_foreign
+      foreign_key_column: id
+      foreign_key_schema: public
+      foreign_key_table: Currency
+      on_delete: NO ACTION
+      on_update: NO ACTION
+      table: Transaction
+  - collection: Transaction
+    field: customer
+    meta:
+      junction_field: null
+      many_collection: Transaction
+      many_field: customer
+      one_allowed_collections: null
+      one_collection: Customer
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: null
+      sort_field: null
+    related_collection: Customer
+    schema:
+      column: customer
+      constraint_name: transaction_customer_foreign
+      foreign_key_column: id
+      foreign_key_schema: public
+      foreign_key_table: Customer
+      on_delete: NO ACTION
+      on_update: NO ACTION
+      table: Transaction
+  - collection: Transaction
+    field: debit_finance_account
+    meta:
+      junction_field: null
+      many_collection: Transaction
+      many_field: debit_finance_account
+      one_allowed_collections: null
+      one_collection: FinanceAccount
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: null
+      sort_field: null
+    related_collection: FinanceAccount
+    schema:
+      column: debit_finance_account
+      constraint_name: transaction_debit_finance_account_foreign
+      foreign_key_column: id
+      foreign_key_schema: public
+      foreign_key_table: FinanceAccount
+      on_delete: NO ACTION
+      on_update: NO ACTION
+      table: Transaction
