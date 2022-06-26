@@ -1,0 +1,59 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
+
+.invoice-recipient,
+.invoice-payment-recipient {
+  margin-bottom: 1em;
+}
+.invoice-payment-recipient {
+  margin-left: auto;
+  max-width: max-content;
+}
+
+.invoice-info-item {
+  display: flex;
+  > span:first-child {
+    min-width: 140px;
+  }
+  &.invoice-info-item-small {
+    > span:first-child {
+      min-width: 120px;
+    }
+  }
+}
+
+.invoice-general-info {
+  margin-bottom: 100px;
+}
+
+.invoice-comment {
+  white-space: pre-line;
+  max-width: 500px;
+  margin-bottom: 2em;
+}
+
+.invoice-products {
+  margin-bottom: 2em;
+  > div {
+    display: flex;
+    justify-content: space-between;
+    &:last-of-type {
+      border-bottom: none;
+    }
+    border-bottom: 1px solid;
+    > div {
+      padding: 8px 0;
+      &:nth-child(1) {
+        flex: 1;
+      }
+      &:nth-child(2) {
+        border-left: 1px solid;
+        flex: 0.2;
+        padding-left: 10px;
+      }
+      &:nth-child(3) {
+        text-align: right;
+        flex: 0.3;
+      }
+    }
+  }
+}

@@ -1,0 +1,86 @@
+.contact-form {
+  margin: auto;
+  width: 100%;
+  max-width: 768px;
+  position: relative;
+  input,
+  textarea {
+    display: block;
+    width: 100%;
+    margin-bottom: 16px;
+  }
+  textarea {
+    min-height: 200px;
+    min-width: 100%;
+    max-width: 100%;
+  }
+  .contact-response-message {
+    border-radius: 7px;
+    margin-bottom: 16px;
+    color: #fafafa;
+    padding: 17px 12px;
+    &.error {
+      background-color: var(--error-color);
+    }
+    &.success {
+      background-color: var(--success-color);
+    }
+  }
+
+  .form-cols {
+    columns: 2;
+    column-gap: 20px;
+    @media screen and (max-width: 768px) {
+      columns: 1;
+    }
+  }
+}
+
+.robot-check-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  z-index: 999;
+  > div {
+    margin: auto;
+    .robot-info,
+    .robot-confirm {
+      padding: 17px 12px;
+      border-radius: 7px;
+      color: #f0f0f0;
+    }
+    .robot-info {
+      color: var(--background-color);
+      background-color: var(--foreground-color);
+    }
+    .robot-confirm {
+      background: none;
+      cursor: pointer;
+      &:hover {
+        transform: scale(1.01);
+      }
+    }
+  }
+}
+
+button[type="submit"].submit {
+  border: none;
+  border-radius: 100%;
+  width: 46px;
+  height: 46px;
+  background-color: var(--foreground-color);
+  position: absolute;
+  bottom: -18px;
+  right: 18px;
+  cursor: pointer;
+  svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
