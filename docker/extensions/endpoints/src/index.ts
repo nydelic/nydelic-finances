@@ -95,6 +95,7 @@ export default defineEndpoint((router, { database }) => {
           status: "[accepted]",
         });
       } catch (error) {
+        console.error(error);
         throw new HttpRequestError("EUNKNOWN", 500, "An unknown error occured");
       }
     } catch (error) {
