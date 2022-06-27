@@ -28,6 +28,7 @@ export default defineEndpoint((router) => {
   router.post("/", (_req, res) => {
     try {
       // Handling multiple notificationRequests
+      let errorCount = 0;
       notificationRequestItems.forEach(function (notificationRequestItem) {
         // Handle the notification
         if (
@@ -55,9 +56,6 @@ export default defineEndpoint((router) => {
             eventCode === NotificationRequestItem.EventCodeEnum["Authorisation"]
           ) {
             console.log(invoiceID);
-            return httpResponse(res, 200, "Sücksess", {
-              status: "[accepted]",
-            });
           } else {
             throw new HttpRequestError(
               "EUNHANDELED_EVENT",
@@ -72,9 +70,16 @@ export default defineEndpoint((router) => {
             "Unauthorized request"
           );
         }
+        errorCount++;
       });
 
-      throw new HttpRequestError("EUNKNOWN", 500, "An unknown error occured");
+      if (errorCount > 0) {
+        throw new HttpRequestError("EUNKNOWN", 500, "An unknown error occured");
+      } else {
+        return httpResponse(res, 200, "Sücksess", {
+          status: "[accepted]",
+        });
+      }
     } catch (error) {
       // BUG: (instanceof HttpRequestError not working): investigate why this way ALL HttpRequestError are interpreted as "Error" isntead -> therefore showing the default 500 message instead of the original informal HttpRequestError
       return httpErrorResponse(res, error);
