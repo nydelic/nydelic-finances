@@ -17,6 +17,7 @@ export default defineEndpoint((router, { database }) => {
   router.post("/", async (_req, res) => {
     try {
       const notificationRequestItems: any[] = _req.body.notificationItems;
+      console.log(JSON.stringify(_req.body));
 
       const promises = notificationRequestItems.map(
         async (notificationRequestItem) => {
