@@ -53,6 +53,8 @@ services:
       # EMAIL_SMTP_SECURE: ''
       # EMAIL_SMTP_IGNORE_TLS: ''
 
+      ADYEN_HMAC_KEY: ${ADYEN_HMAC_KEY}
+
       EXTENSIONS_AUTO_RELOAD: 'true'
       # Make sure to set this in production
       # (see https://docs.directus.io/self-hosted/config-options/#general)
