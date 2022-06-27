@@ -4,6 +4,7 @@ import HttpRequestError from "@nydelic/toolbox/dist/handlers/http/HttpRequestErr
 import httpErrorResponse from "@nydelic/toolbox/dist/handlers/http/httpErrorResponse";
 import httpResponse from "@nydelic/toolbox/dist/handlers/http/httpResponse";
 import testRequests from "./testRequests";
+import { NotificationRequestItem } from "@adyen/api-library/lib/src/typings/notification/notificationRequestItem";
 
 const ADYEN_HMAC_KEY = process.env.ADYEN_HMAC_KEY;
 if (!ADYEN_HMAC_KEY) {
@@ -38,8 +39,32 @@ export default defineEndpoint((router) => {
           // Process the notification based on the eventCode
           const eventCode =
             notificationRequestItem.NotificationRequestItem.eventCode;
+          const invoiceID: any = (
+            notificationRequestItem.NotificationRequestItem
+              .additionalData as any
+          ).invoiceID;
+          if (typeof invoiceID !== "string") {
+            throw new HttpRequestError(
+              "EINVALID_INVOICE_UUID",
+              400,
+              "No valid invoice UUID provided"
+            );
+          }
 
-          console.log(eventCode);
+          if (
+            eventCode === NotificationRequestItem.EventCodeEnum["Authorisation"]
+          ) {
+            console.log(invoiceID);
+            return httpResponse(res, 200, "Sücksess", {
+              status: "[accepted]",
+            });
+          } else {
+            throw new HttpRequestError(
+              "EUNHANDELED_EVENT",
+              400,
+              `Event code not handeled: ${eventCode}`
+            );
+          }
         } else {
           throw new HttpRequestError(
             "EUNAUTHORIZED",
@@ -49,10 +74,9 @@ export default defineEndpoint((router) => {
         }
       });
 
-      return httpResponse(res, 200, "Sücksess", {
-        key: process.env.ADYEN_HMAC_KEY,
-      });
+      throw new HttpRequestError("EUNKNOWN", 500, "An unknown error occured");
     } catch (error) {
+      // BUG: (instanceof HttpRequestError not working): investigate why this way ALL HttpRequestError are interpreted as "Error" isntead -> therefore showing the default 500 message instead of the original informal HttpRequestError
       return httpErrorResponse(res, error);
     }
   });

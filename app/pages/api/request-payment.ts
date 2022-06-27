@@ -45,6 +45,9 @@ const requestPayment = async (req: NextApiRequest, res: NextApiResponse) => {
       countryCode: invoice.customer.address?.country_code,
       shopperEmail: invoice.customer.email,
       shopperReference: `customer-${invoice.customer.id}`, // POLISH use UUID isntead of number for primary key
+      additionalData: {
+        invoiceID: req.body.uuid,
+      },
     });
 
     // POLISH catch errors different responses?
