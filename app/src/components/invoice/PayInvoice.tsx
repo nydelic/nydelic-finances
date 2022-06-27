@@ -1,4 +1,10 @@
-import { AiFillLock, AiOutlineBell, AiOutlineCreditCard } from "react-icons/ai";
+import {
+  AiFillLock,
+  AiOutlineBell,
+  AiOutlineCheckCircle,
+  AiOutlineCloseCircle,
+  AiOutlineCreditCard,
+} from "react-icons/ai";
 import useAdyenCheckout from "hooks/useAdyenCheckout";
 
 interface PayInvoiceProps {
@@ -51,7 +57,11 @@ function PayInvoice({ uuid }: PayInvoiceProps) {
             error ? "text-rose-700" : "text-emerald-700"
           }`}
         >
-          <AiOutlineBell className="flex-shrink-0 mr-4" />
+          {error ? (
+            <AiOutlineCloseCircle className="flex-shrink-0 mr-4" />
+          ) : (
+            <AiOutlineCheckCircle className="flex-shrink-0 mr-4" />
+          )}
           <div className="flex-shrink">{error || success}</div>
         </div>
       ) : (
