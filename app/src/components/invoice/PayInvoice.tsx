@@ -52,11 +52,7 @@ function PayInvoice({ uuid }: PayInvoiceProps) {
           }`}
         >
           <AiOutlineBell className="flex-shrink-0 mr-4" />
-          <div className="flex-shrink">
-            Diese Rechnung wurde von Ihnen bereits als bezahlt markiert. Fahren
-            Sie nur fort, wenn Sie sich sicher sind das Sie die Rechnung noch
-            nicht bezahlt haben.
-          </div>
+          <div className="flex-shrink">{error || success}</div>
         </div>
       ) : (
         <button
