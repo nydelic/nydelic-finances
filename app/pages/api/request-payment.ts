@@ -39,15 +39,16 @@ const requestPayment = async (req: NextApiRequest, res: NextApiResponse) => {
         currency: "CHF",
         value: articlesSum * 100, // * 100 because we want it in "Rappen"
       },
-      reference: `#${invoiceNr} (${req.body.uuid})`,
+      reference: JSON.stringify({
+        invoice: req.body.uuid,
+        customer: invoice.customer.id,
+      }),
+      // TODO: Handle the redirect result: https://docs.adyen.com/online-payments/web-drop-in#handle-redirect-result
       returnUrl: `http://localhost:3000/invoice/${req.body.uuid}`,
       merchantAccount: ADYEN_MERCHANT_ACCOUNT,
       countryCode: invoice.customer.address?.country_code,
       shopperEmail: invoice.customer.email,
       shopperReference: `customer-${invoice.customer.id}`, // POLISH use UUID isntead of number for primary key
-      additionalData: {
-        invoiceID: req.body.uuid,
-      },
     });
 
     // POLISH catch errors different responses?

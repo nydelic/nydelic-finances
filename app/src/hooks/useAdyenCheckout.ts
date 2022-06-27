@@ -63,7 +63,7 @@ function useAdyenCheckout() {
         },
         onError: (error: unknown, component: unknown) => {
           console.error(error, component);
-          // FIXME error handling
+          // FIXME error handling: https://docs.adyen.com/online-payments/web-drop-in#drop-in-error-handling
           setError(
             "Ein unbekannter Fehler ist aufgetrete, bitte versuchen Sie es später erneut."
           );

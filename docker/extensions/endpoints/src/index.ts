@@ -17,7 +17,6 @@ export default defineEndpoint((router, { database }) => {
   router.post("/", async (_req, res) => {
     try {
       const notificationRequestItems: any[] = _req.body.notificationItems;
-      console.log(JSON.stringify(_req.body));
 
       const promises = notificationRequestItems.map(
         async (notificationRequestItem) => {
@@ -29,10 +28,9 @@ export default defineEndpoint((router, { database }) => {
           ) {
             const eventCode =
               notificationRequestItem.NotificationRequestItem.eventCode;
-            const invoiceID: any = (
-              notificationRequestItem.NotificationRequestItem
-                .additionalData as any
-            ).invoiceID;
+            const invoiceID: any = JSON.parse(
+              notificationRequestItem.NotificationRequestItem.merchantReference
+            ).invoice;
             if (typeof invoiceID !== "string") {
               throw new HttpRequestError(
                 "EINVALID_INVOICE_UUID",
@@ -45,6 +43,18 @@ export default defineEndpoint((router, { database }) => {
               eventCode ===
               NotificationRequestItem.EventCodeEnum["Authorisation"]
             ) {
+              if (
+                notificationRequestItem.NotificationRequestItem.success !==
+                NotificationRequestItem.SuccessEnum["True"]
+              ) {
+                // TODO: handle isntead of error throwing
+                throw new HttpRequestError(
+                  "EUNHANDELED_REJECTION",
+                  400,
+                  "Payment was rejected :("
+                );
+              }
+
               try {
                 const invoices = await database
                   .table("Invoice")
