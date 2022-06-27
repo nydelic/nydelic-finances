@@ -7,6 +7,8 @@ interface PayInvoiceProps {
 
 function PayInvoice({ uuid }: PayInvoiceProps) {
   const {
+    error,
+    success,
     sessionStarted,
     adyenContainerRef,
     adyenCheckoutRef,
@@ -42,6 +44,19 @@ function PayInvoice({ uuid }: PayInvoiceProps) {
           <span className="text-xs text-stone-400 self-center">
             Sie können im nächsten Schritt ihre Zahlungsmethode auswählen
           </span>
+        </div>
+      ) : error || success ? (
+        <div
+          className={`flex items-center text-xs mb-4 ${
+            error ? "text-rose-700" : "text-emerald-700"
+          }`}
+        >
+          <AiOutlineBell className="flex-shrink-0 mr-4" />
+          <div className="flex-shrink">
+            Diese Rechnung wurde von Ihnen bereits als bezahlt markiert. Fahren
+            Sie nur fort, wenn Sie sich sicher sind das Sie die Rechnung noch
+            nicht bezahlt haben.
+          </div>
         </div>
       ) : (
         <button

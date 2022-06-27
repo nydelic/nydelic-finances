@@ -13,6 +13,8 @@ const NEXT_PUBLIC_ADYEN_CHECKOUT_CLIENT_KEY = throwIfUndefind(
 
 function useAdyenCheckout() {
   const [sessionStarted, setSessionStarted] = useState(false);
+  const [error, setError] = useState<string>();
+  const [success, setSuccess] = useState<string>();
 
   const adyenContainerRef = useRef<HTMLDivElement>(null);
   const adyenCheckoutRef = useRef<InstanceType<
@@ -56,10 +58,15 @@ function useAdyenCheckout() {
         onPaymentCompleted: (result: unknown, component: unknown) => {
           // FIXME payment complete handling
           console.info(result, component);
+
+          setSuccess("Vielen Dank, Ihre Zahlung ist bei uns Eingetroffen!");
         },
         onError: (error: unknown, component: unknown) => {
-          // FIXME error handling
           console.error(error, component);
+          // FIXME error handling
+          setError(
+            "Ein unbekannter Fehler ist aufgetrete, bitte versuchen Sie es später erneut."
+          );
         },
         // Any payment method specific configuration. Find the configuration specific to each payment method:  https://docs.adyen.com/payment-methods
         // For example, this is 3D Secure configuration for cards:
@@ -85,6 +92,8 @@ function useAdyenCheckout() {
   );
 
   return {
+    error,
+    success,
     adyenContainerRef,
     adyenCheckoutRef,
     sessionStarted,
