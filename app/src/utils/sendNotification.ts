@@ -17,7 +17,7 @@ const DIRECTUS_GRAPHQL_BEARER = throwIfUndefind(
 );
 
 async function sendNotification(notification: Notification) {
-  // TODO: use graohql
+  // TODO: use graphql
   // const systemMutation = gql`
   //   mutation updateInvoice(
   //     $USER: create_directus_users_input

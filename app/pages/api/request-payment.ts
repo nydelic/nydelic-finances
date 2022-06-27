@@ -43,7 +43,7 @@ const requestPayment = async (req: NextApiRequest, res: NextApiResponse) => {
         invoice: req.body.uuid,
         customer: invoice.customer.id,
       }),
-      // TODO: Handle the redirect result: https://docs.adyen.com/online-payments/web-drop-in#handle-redirect-result
+      // FIXME: Handle the redirect result (in FE): https://docs.adyen.com/online-payments/web-drop-in#handle-redirect-result
       returnUrl: `http://localhost:3000/invoice/${req.body.uuid}`,
       merchantAccount: ADYEN_MERCHANT_ACCOUNT,
       countryCode: invoice.customer.address?.country_code,

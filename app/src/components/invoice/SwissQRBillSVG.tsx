@@ -15,6 +15,7 @@ const validLanguages: Languages[] = ["DE", "EN", "FR", "IT"];
 function SwissQRBillSVG({ invoice, invoiceNr }: SwissQRBillSVGProps) {
   const [svgURL, setSvgURL] = useState<string>();
 
+  // POLISH: configure propper language dropdown in directus
   const uppercaseLang = invoice.customer.language.toUpperCase();
   const language: Languages = validLanguages.includes(
     uppercaseLang as Languages
