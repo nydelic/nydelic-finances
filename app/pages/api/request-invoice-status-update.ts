@@ -4,9 +4,11 @@ import { InvoiceShape } from "shapes/invoice";
 import graphQLClient from "utils/graphQLClient";
 import convertInvoiceDateToNr from "utils/convertInvoiceDateToNr";
 import sendNotification, { Notification } from "utils/sendNotification";
-import HttpRequestError from "@nydelic/toolbox/dist/handlers/http/HttpRequestError";
-import httpResponse from "@nydelic/toolbox/dist/handlers/http/httpResponse";
-import httpErrorResponse from "@nydelic/toolbox/dist/handlers/http/httpErrorResponse";
+import {
+  HttpRequestError,
+  httpResponse,
+  httpErrorResponse,
+} from "@nydelic/toolbox";
 
 const CHECK_FOR_DID_PAY = "CHECK_FOR_DID_PAY"; // hey future me: if you want to export, move to seperate file otherwise error :)
 

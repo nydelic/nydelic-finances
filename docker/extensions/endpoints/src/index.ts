@@ -1,8 +1,10 @@
 import { defineEndpoint } from "@directus/extensions-sdk";
 import { hmacValidator } from "@adyen/api-library";
-import HttpRequestError from "@nydelic/toolbox/dist/handlers/http/HttpRequestError";
-import httpErrorResponse from "@nydelic/toolbox/dist/handlers/http/httpErrorResponse";
-import httpResponse from "@nydelic/toolbox/dist/handlers/http/httpResponse";
+import {
+  HttpRequestError,
+  httpResponse,
+  httpErrorResponse,
+} from "@nydelic/toolbox";
 
 import { NotificationRequestItem } from "@adyen/api-library/lib/src/typings/notification/notificationRequestItem";
 import { ApiExtensionContext } from "@directus/shared/src/types";

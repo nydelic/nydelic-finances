@@ -1,8 +1,10 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import Nodemailer from "nodemailer";
-import HttpRequestError from "@nydelic/toolbox/dist/handlers/http/HttpRequestError";
-import httpResponse from "@nydelic/toolbox/dist/handlers/http/httpResponse";
-import httpErrorResponse from "@nydelic/toolbox/dist/handlers/http/httpErrorResponse";
+import {
+  HttpRequestError,
+  httpResponse,
+  httpErrorResponse,
+} from "@nydelic/toolbox";
 import throwIfUndefind from "utils/throwIfUndefind";
 
 const GOOGLE_SMTP_AUTH_USER = throwIfUndefind(

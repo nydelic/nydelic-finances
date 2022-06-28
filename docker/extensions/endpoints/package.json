@@ -18,7 +18,7 @@
   "devDependencies": {
     "@adyen/api-library": "^11.0.0",
     "@directus/extensions-sdk": "9.12.2",
-    "@nydelic/toolbox": "^1.2.0",
+    "@nydelic/toolbox": "^1.2.1",
     "@types/node": "^18.0.0",
     "typescript": "^4.7.4"
   }

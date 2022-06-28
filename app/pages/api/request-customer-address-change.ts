@@ -1,7 +1,9 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import HttpRequestError from "@nydelic/toolbox/dist/handlers/http/HttpRequestError";
-import httpResponse from "@nydelic/toolbox/dist/handlers/http/httpResponse";
-import httpErrorResponse from "@nydelic/toolbox/dist/handlers/http/httpErrorResponse";
+import {
+  HttpRequestError,
+  httpResponse,
+  httpErrorResponse,
+} from "@nydelic/toolbox";
 import { gql } from "graphql-request";
 import graphQLClient from "utils/graphQLClient";
 

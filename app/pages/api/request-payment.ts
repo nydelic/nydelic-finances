@@ -2,9 +2,11 @@ import { NextApiRequest, NextApiResponse } from "next";
 import { Client, CheckoutAPI } from "@adyen/api-library";
 import fetchInvoicePaymentDetails from "utils/fetchInvoicePaymentDetails";
 import throwIfUndefind from "utils/throwIfUndefind";
-import HttpRequestError from "@nydelic/toolbox/dist/handlers/http/HttpRequestError";
-import httpResponse from "@nydelic/toolbox/dist/handlers/http/httpResponse";
-import httpErrorResponse from "@nydelic/toolbox/dist/handlers/http/httpErrorResponse";
+import {
+  HttpRequestError,
+  httpResponse,
+  httpErrorResponse,
+} from "@nydelic/toolbox";
 
 const ADYEN_CLIENT_API_KEY = throwIfUndefind(process.env.ADYEN_CLIENT_API_KEY);
 const ADYEN_MERCHANT_ACCOUNT = throwIfUndefind(
