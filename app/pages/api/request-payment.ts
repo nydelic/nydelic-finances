@@ -15,6 +15,14 @@ const ADYEN_MERCHANT_ACCOUNT = throwIfUndefind(
 const ADYEN_CLIENT_ENV = throwIfUndefind(process.env.ADYEN_CLIENT_ENV);
 
 const requestPayment = async (req: NextApiRequest, res: NextApiResponse) => {
+  if (!req.headers.origin) {
+    throw new HttpRequestError(
+      "ENO_ORIGIN",
+      400,
+      "Expected the request to send an origin"
+    );
+  }
+
   try {
     if (typeof req.body.uuid !== "string") {
       throw new HttpRequestError(
@@ -43,8 +51,7 @@ const requestPayment = async (req: NextApiRequest, res: NextApiResponse) => {
         invoice: req.body.uuid,
         customer: invoice.customer.id,
       }),
-      // FIXME: Handle the redirect result (in FE): https://docs.adyen.com/online-payments/web-drop-in#handle-redirect-result
-      returnUrl: `http://localhost:3000/invoice/${req.body.uuid}`,
+      returnUrl: `${req.headers.origin}/invoice/${req.body.uuid}`,
       merchantAccount: ADYEN_MERCHANT_ACCOUNT,
       countryCode: invoice.customer.address?.country_code,
       shopperEmail: invoice.customer.email,

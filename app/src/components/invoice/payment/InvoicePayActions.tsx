@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import { AiOutlineBank, AiOutlineCreditCard } from "react-icons/ai";
 import { InvoiceShape } from "shapes/invoice";
 
+// POLISH Rewrite to Enum
 export type PaymentTypes = "card" | "transfer";
 
 interface InvoicePayActionsProps {

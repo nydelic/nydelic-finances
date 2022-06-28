@@ -14,14 +14,22 @@ import SingleInvoicePaymentStatus from "components/invoice/payment/SingleInvoice
 import SingleInvoicePayment from "components/invoice/payment/SingleInvoicePayment";
 import { useState, useMemo } from "react";
 import { AddressData } from "components/invoice/InvoiceAddressForm";
+import { useRouter } from "next/router";
+import PaymentReturn from "components/invoice/payment/PaymentReturn";
 
 export interface InvoicePageProps {
   invoice: InvoiceShape;
 }
 
 const InvoicePage = ({ invoice: invoiceProp }: InvoicePageProps) => {
+  const { query } = useRouter();
+  const returnSessionId = query.sessionId;
+  const returnRedirectResult = query.redirectResult;
+
   const [paymentDone, setPaymentDone] = useState(false);
-  const [paymentProcess, setPaymentProccess] = useState<PaymentTypes>();
+  const [paymentProcess, setPaymentProccess] = useState<
+    PaymentTypes | "return" | "none"
+  >(returnSessionId && returnRedirectResult ? "return" : "none");
   const [customerAddressData, setCustomerAddressData] = useState<AddressData>();
 
   const invoice = useMemo(
@@ -39,6 +47,9 @@ const InvoicePage = ({ invoice: invoiceProp }: InvoicePageProps) => {
     invoiceDateString: invoice.create_date,
   });
 
+  // FIXME: Handle the redirect result (in FE): https://docs.adyen.com/online-payments/web-drop-in#handle-redirect-result
+  // FIXME wrong place ik - update invoice in FE after sucessfull payment to "payment_received"
+
   return (
     <>
       <Head>
@@ -46,7 +57,28 @@ const InvoicePage = ({ invoice: invoiceProp }: InvoicePageProps) => {
         <meta name="description" content="View your invoices by nydelic." />
       </Head>
       <SingleInvoiceContainer>
-        {paymentProcess ? (
+        {paymentProcess === "return" && (
+          <PaymentReturn
+            sessionId={returnSessionId}
+            redirectResult={returnRedirectResult}
+            invoiceNr={invoiceNr}
+            onClose={() => {
+              setPaymentProccess("none");
+
+              // remove now unused params
+              const params = new URLSearchParams(window.location.search);
+              params.delete("sessionId");
+              params.delete("redirectResult");
+
+              window.history.pushState(
+                null,
+                document.title,
+                `${window.location.pathname}?${params.toString()}`
+              );
+            }}
+          />
+        )}
+        {(paymentProcess === "transfer" || paymentProcess === "card") && (
           <SingleInvoicePayment
             activeType={paymentProcess}
             invoice={invoice}
@@ -59,7 +91,8 @@ const InvoicePage = ({ invoice: invoiceProp }: InvoicePageProps) => {
               setCustomerAddressData(addressData);
             }}
           />
-        ) : (
+        )}
+        {paymentProcess === "none" && (
           <>
             <SingleInvoiceActions>
               <SingleInvoicePaymentStatus invoice={invoice} />

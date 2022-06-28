@@ -18,7 +18,7 @@ interface SingleInvoicePaymentProps {
   invoice: InvoiceShape;
   invoiceNr: string;
   activeType: PaymentTypes;
-  onPaymentProccessChange: (type?: PaymentTypes) => void;
+  onPaymentProccessChange: (type: PaymentTypes | "none") => void;
   onPaymentDone: () => void;
   onAddressFormFilled: InvoiceAddressFormProps["onAddressFormFilled"];
 }
@@ -40,7 +40,7 @@ function SingleInvoicePayment({
     <div
       className="whitespace-nowrap underline p-4 py-2 cursor-pointer"
       onClick={() => {
-        onPaymentProccessChange();
+        onPaymentProccessChange("none");
       }}
     >
       zurück <AiOutlineRollback className="inline-block" />

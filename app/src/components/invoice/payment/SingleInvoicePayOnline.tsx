@@ -11,6 +11,8 @@ interface SingleInvoicePayOnlineProps {
   uuid: string;
 }
 
+// POLISH keep checkout session loaded when users navigates somewhere else
+
 function SingleInvoicePayOnline({ uuid }: SingleInvoicePayOnlineProps) {
   const {
     error,

@@ -40,15 +40,10 @@ function useAdyenCheckout() {
     return session;
   }, []);
 
-  const mountUi = useCallback(
-    async (session: { id: string; sessionData: string }) => {
-      if (!adyenContainerRef.current) {
-        throw new Error(
-          "Make sure the adyenContainerRef attached to a div element"
-        );
-      }
+  const getCheckoutData = useCallback(
+    async (session: { id: string; sessionData?: string }) => {
       // Create an instance of AdyenCheckout using the configuration object.
-      const checkout = await AdyenCheckout({
+      return AdyenCheckout({
         environment: NEXT_PUBLIC_ADYEN_CHECKOUT_ENV,
         clientKey: NEXT_PUBLIC_ADYEN_CHECKOUT_CLIENT_KEY,
         analytics: {
@@ -82,13 +77,26 @@ function useAdyenCheckout() {
 
         showPayButton: false,
       });
+    },
+    []
+  );
+
+  const mountUi = useCallback(
+    async (session: { id: string; sessionData: string }) => {
+      if (!adyenContainerRef.current) {
+        throw new Error(
+          "Make sure the adyenContainerRef attached to a div element"
+        );
+      }
+      // Create an instance of AdyenCheckout using the configuration object.
+      const checkout = await getCheckoutData(session);
 
       // Create an instance of the Component and mount it to the container you created.
       adyenCheckoutRef.current = checkout
         .create("dropin")
         .mount(adyenContainerRef.current);
     },
-    []
+    [getCheckoutData]
   );
 
   return {
@@ -98,6 +106,7 @@ function useAdyenCheckout() {
     adyenCheckoutRef,
     sessionStarted,
     createSession,
+    getCheckoutData,
     mountUi,
   };
 }
