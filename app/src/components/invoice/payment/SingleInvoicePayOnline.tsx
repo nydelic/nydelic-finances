@@ -35,7 +35,7 @@ function SingleInvoicePayOnline({ uuid }: SingleInvoicePayOnlineProps) {
 
       <div ref={adyenContainerRef} className="mb-4" />
 
-      {!sessionStarted && (
+      {(!sessionStarted || error) && (
         <div className="flex">
           <button
             className="text-sm whitespace-nowrap py-2 px-3 rounded-md border border-black mr-4"
@@ -45,7 +45,7 @@ function SingleInvoicePayOnline({ uuid }: SingleInvoicePayOnlineProps) {
             }}
           >
             <AiOutlineCreditCard className="inline-block mr-2" />
-            Zahlungsprozess starten
+            {error ? "Zahlungsprozess neu starten" : "Zahlungsprozess starten"}
           </button>
           <span className="text-xs text-stone-400 self-center">
             Sie können im nächsten Schritt ihre Zahlungsmethode auswählen
@@ -53,13 +53,13 @@ function SingleInvoicePayOnline({ uuid }: SingleInvoicePayOnlineProps) {
         </div>
       )}
       {sessionStarted && success && (
-        <div className="flex items-center text-xs mb-4 text-emerald-700">
+        <div className="flex items-center text-xs text-emerald-700 mt-4">
           <AiOutlineCheckCircle className="flex-shrink-0 mr-4" />
           <div className="flex-shrink">{success}</div>
         </div>
       )}
       {sessionStarted && error && (
-        <div className="flex items-center text-xs mb-4text-rose-700">
+        <div className="flex items-center text-xs text-rose-700 mt-4">
           <AiOutlineCloseCircle className="flex-shrink-0 mr-4" />
           <div className="flex-shrink">{error}</div>
         </div>

@@ -17,9 +17,10 @@ const DIRECTUS_GRAPHQL_BEARER = throwIfUndefind(
 );
 
 async function sendNotification(notification: Notification) {
-  // TODO: use graphql (see git history)
+  // TODO: use graphql (see git history) https://github.com/directus/directus/issues/14100
 
-  const response = await fetch(`${DIRECTUS_ENDPOINT}/notifications`, {
+  // POLISH set-up sentry for logging?
+  await fetch(`${DIRECTUS_ENDPOINT}/notifications`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -34,9 +35,6 @@ async function sendNotification(notification: Notification) {
       item: notification.item,
     }),
   });
-  const json = await response.json();
-
-  console.log(json);
 }
 
 export default sendNotification;

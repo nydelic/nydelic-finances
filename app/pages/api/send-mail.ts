@@ -1,9 +1,11 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import Nodemailer from "nodemailer";
-import nextHttpResponse from "utils/http/nextHttpResponse";
-import nextHttpErrorResponse from "utils/http/nextHttpErrorResponse";
+import {
+  HttpRequestError,
+  httpResponse,
+  httpErrorResponse,
+} from "@nydelic/toolbox";
 import throwIfUndefind from "utils/throwIfUndefind";
-import HttpRequestError from "utils/http/HttpRequestError";
 
 const GOOGLE_SMTP_AUTH_USER = throwIfUndefind(
   process.env.GOOGLE_SMTP_AUTH_USER
@@ -34,18 +36,9 @@ const escapeHtml = (unsafe: string) => {
     .replace(/'/g, "&#039;");
 };
 
-const validateEmail = (inputText: string) => {
-  const mailformat = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
-  if (inputText.match(mailformat)) {
-    return true;
-  } else {
-    return false;
-  }
-};
-
 const sendMail = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
-    if (!req.body.email || !validateEmail(req.body.email)) {
+    if (!req.body.email) {
       throw new HttpRequestError(
         "ESEND_INVALID_EMAIL",
         400,
@@ -131,9 +124,9 @@ const sendMail = async (req: NextApiRequest, res: NextApiResponse) => {
       });
     }
 
-    return nextHttpResponse(res, 200, "Sssssht, email sent ;)");
+    return httpResponse(res, 200, "Sssssht, email sent ;)");
   } catch (error) {
-    return nextHttpErrorResponse(res, error);
+    return httpErrorResponse(res, error);
   }
 };
 

@@ -38,7 +38,6 @@ const InvoicePage = ({ invoice: invoiceProp }: InvoicePageProps) => {
   const invoiceNr = convertInvoiceDateToNr({
     invoiceDateString: invoice.create_date,
   });
-  console.log(invoice);
 
   return (
     <>

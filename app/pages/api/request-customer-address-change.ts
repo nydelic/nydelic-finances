@@ -1,18 +1,11 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import nextHttpResponse from "utils/http/nextHttpResponse";
-import nextHttpErrorResponse from "utils/http/nextHttpErrorResponse";
-import HttpRequestError from "utils/http/HttpRequestError";
+import {
+  HttpRequestError,
+  httpResponse,
+  httpErrorResponse,
+} from "@nydelic/toolbox";
 import { gql } from "graphql-request";
 import graphQLClient from "utils/graphQLClient";
-
-const validateEmail = (inputText: string) => {
-  const mailformat = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
-  if (inputText.match(mailformat)) {
-    return true;
-  } else {
-    return false;
-  }
-};
 
 const requestCustomerAddressChange = async (
   req: NextApiRequest,
@@ -147,7 +140,7 @@ const requestCustomerAddressChange = async (
         CUSTOMER_ID: customerId,
         ...addressVariables,
       });
-      return nextHttpResponse(
+      return httpResponse(
         res,
         201,
         "Customer address created",
@@ -189,15 +182,10 @@ const requestCustomerAddressChange = async (
         ADDRESS_ID: addressId,
         ...addressVariables,
       });
-      return nextHttpResponse(
-        res,
-        200,
-        "Customer address updated",
-        addressResult
-      );
+      return httpResponse(res, 200, "Customer address updated", addressResult);
     }
   } catch (error) {
-    return nextHttpErrorResponse(res, error);
+    return httpErrorResponse(res, error);
   }
 };
 
