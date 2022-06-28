@@ -34,18 +34,9 @@ const escapeHtml = (unsafe: string) => {
     .replace(/'/g, "&#039;");
 };
 
-const validateEmail = (inputText: string) => {
-  const mailformat = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
-  if (inputText.match(mailformat)) {
-    return true;
-  } else {
-    return false;
-  }
-};
-
 const sendMail = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
-    if (!req.body.email || !validateEmail(req.body.email)) {
+    if (!req.body.email) {
       throw new HttpRequestError(
         "ESEND_INVALID_EMAIL",
         400,
