@@ -33,20 +33,24 @@ const InvoicePage = ({ invoice: invoiceProp }: InvoicePageProps) => {
   >(returnSessionId && returnRedirectResult ? "return" : "none");
   const [customerAddressData, setCustomerAddressData] = useState<AddressData>();
 
+  let invoiceStatusOverride: InvoiceShape["status"] | null = null;
+  if (paymentPending) {
+    invoiceStatusOverride = "payment_received";
+  }
+  if (paymentReceived) {
+    invoiceStatusOverride = "payment_received";
+  }
+
   const invoice = useMemo(
     () => ({
       ...invoiceProp,
-      status: paymentPending
-        ? "payment_pending"
-        : paymentReceived
-        ? "payment_received"
-        : invoiceProp.status,
+      status: invoiceStatusOverride || invoiceProp.status,
       customer: {
         ...invoiceProp.customer,
         address: customerAddressData || invoiceProp.customer.address,
       },
     }),
-    [invoiceProp, paymentPending, paymentReceived, customerAddressData]
+    [invoiceProp, invoiceStatusOverride, customerAddressData]
   );
   const invoiceNr = convertInvoiceDateToNr({
     invoiceDateString: invoice.create_date,
