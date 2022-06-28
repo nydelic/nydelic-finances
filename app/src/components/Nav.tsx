@@ -10,7 +10,6 @@ const Nav = ({ children }: NavProps) => {
   const [navOpen, setNavOpen] = useState(false);
   const [navOpenDelayed, setNavOpenDelayed] = useState(false);
   const [animationFinished, setAnimationFinished] = useState(false);
-  // const [click, setClicked] = useState(false);
 
   useEffect(() => {
     const handleRouterChangeComplete = () => {
@@ -61,7 +60,7 @@ const Nav = ({ children }: NavProps) => {
                     setNavOpenDelayed(false);
                   }
                 }}
-                onClick={(e) => {
+                onClick={() => {
                   setNavOpen(false);
                   setAnimationFinished(false);
                 }}

@@ -1,4 +1,4 @@
-import companyConfig from "config/company";
+import companyConfig from "config/companyConfig";
 import { useEffect, useState } from "react";
 import { InvoiceShape } from "shapes/invoice";
 import { SVG } from "swissqrbill/lib/node/esm/node/svg";

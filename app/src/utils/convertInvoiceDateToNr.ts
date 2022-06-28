@@ -19,9 +19,7 @@ function convertInvoiceDateToNr({
     )
     .map((part) => part.value);
 
-  const invoiceNr = `${invDateParts.join("")}`.padStart(5, "0");
-
-  return invoiceNr;
+  return `${invDateParts.join("")}`.padStart(5, "0");
 }
 
 export default convertInvoiceDateToNr;

@@ -12,8 +12,7 @@ import SingleInvoiceContainer from "components/invoice/SingleInvoiceContainer";
 import SingleInvoiceActions from "components/invoice/SingleInvoiceActions";
 import SingleInvoicePaymentStatus from "components/invoice/SingleInvoicePaymentStatus";
 import SingleInvoicePayment from "components/invoice/SingleInvoicePayment";
-import { useState } from "react";
-import { useMemo } from "react";
+import { useState, useMemo } from "react";
 import { AddressData } from "components/invoice/InvoiceAddressForm";
 
 export interface InvoicePageProps {
@@ -83,7 +82,7 @@ export const getServerSideProps: GetServerSideProps<
   {
     uuid: string;
   }
-> = async ({ params, res }) => {
+> = async ({ params }) => {
   try {
     if (!params?.uuid) {
       throw new Error("Expected a uuid from params");

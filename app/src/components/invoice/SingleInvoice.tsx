@@ -2,7 +2,7 @@ import getVATBySlug from "utils/getVATBySlug";
 import getFullPriceFromInvoice from "utils/getFullPriceFromInvoice";
 
 import styles from "./SingleInvoice.module.scss";
-import companyConfig from "config/company";
+import companyConfig from "config/companyConfig";
 import { InvoiceShape } from "shapes/invoice";
 
 interface SingleInvoiceProps {

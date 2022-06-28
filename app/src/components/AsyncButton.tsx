@@ -16,8 +16,8 @@ function AsyncButton({ onClick, children, ...props }: AsyncButtonProps) {
     <button
       disabled={loading}
       className={`text-sm py-2 px-3 rounded-md border border-black disabled:opacity-50 ${
-        loading ? "" : ""
-      } ${props.className || ""}`}
+        props.className || ""
+      }`}
       onClick={async (ev) => {
         setLoading(true);
         try {

@@ -2,7 +2,6 @@ import { NextApiRequest, NextApiResponse } from "next";
 import nextHttpResponse from "utils/http/nextHttpResponse";
 import nextHttpErrorResponse from "utils/http/nextHttpErrorResponse";
 import HttpRequestError from "utils/http/HttpRequestError";
-import fetchInvoicePaymentDetails from "utils/fetchInvoicePaymentDetails";
 import { gql } from "graphql-request";
 import graphQLClient from "utils/graphQLClient";
 
@@ -134,9 +133,16 @@ const requestCustomerAddressChange = async (
         }
       `;
       const customerAddressResult: {
-        // update_Invoice_item: {
-        //   status: InvoiceShape["status"];
-        // };
+        update_Customer_item: {
+          id: string;
+          address: {
+            street: string;
+            street_number: string;
+            city: string;
+            postal_code: string;
+            country_code: string;
+          };
+        };
       } = await graphQLClient.request(mutation, {
         CUSTOMER_ID: customerId,
         ...addressVariables,
@@ -172,9 +178,13 @@ const requestCustomerAddressChange = async (
         }
       `;
       const addressResult: {
-        // update_Invoice_item: {
-        //   status: InvoiceShape["status"];
-        // };
+        update_Address_item: {
+          street: string;
+          street_number: string;
+          city: string;
+          postal_code: string;
+          country_code: string;
+        };
       } = await graphQLClient.request(mutation, {
         ADDRESS_ID: addressId,
         ...addressVariables,

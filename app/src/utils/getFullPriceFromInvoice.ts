@@ -3,7 +3,7 @@ import getVATBySlug, { VatSlug } from "./getVATBySlug";
 interface GetFullPriceFromInvoice {
   articles: {
     price: number;
-    count?: number | undefined;
+    count?: number;
   }[];
   vat?: VatSlug;
 }

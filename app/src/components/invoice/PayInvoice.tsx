@@ -35,7 +35,7 @@ function PayInvoice({ uuid }: PayInvoiceProps) {
 
       <div ref={adyenContainerRef} className="mb-4" />
 
-      {!sessionStarted ? (
+      {!sessionStarted && (
         <div className="flex">
           <button
             className="text-sm whitespace-nowrap py-2 px-3 rounded-md border border-black mr-4"
@@ -51,7 +51,8 @@ function PayInvoice({ uuid }: PayInvoiceProps) {
             Sie können im nächsten Schritt ihre Zahlungsmethode auswählen
           </span>
         </div>
-      ) : error || success ? (
+      )}
+      {sessionStarted && (error || success) ? (
         <div
           className={`flex items-center text-xs mb-4 ${
             error ? "text-rose-700" : "text-emerald-700"

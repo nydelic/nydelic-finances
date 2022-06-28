@@ -17,37 +17,7 @@ const DIRECTUS_GRAPHQL_BEARER = throwIfUndefind(
 );
 
 async function sendNotification(notification: Notification) {
-  // TODO: use graphql
-  // const systemMutation = gql`
-  //   mutation updateInvoice(
-  //     $USER: create_directus_users_input
-  //     $MESSAGE: String!
-  //     $COLLECTION: String
-  //   ) {
-  //     create_notifications_item(
-  //       data: {
-  //         recipient: $USER
-  //         subject: $MESSAGE
-  //         timestamp: "0"
-  //         collection: $COLLECTION
-  //       }
-  //     ) {
-  //       id
-  //     }
-  //   }
-  // `;
-  // const sysemMutationResult: {
-  //   create_notifications_item: {
-  //     data: {
-  //       id: string;
-  //       timestamp: 0;
-  //     };
-  //   };
-  // } = await graphQLSystemClient.request(systemMutation, {
-  //   USER: notification.user,
-  //   MESSAGE: notification.subject,
-  //   COLLECTION: notification.collection,
-  // });
+  // TODO: use graphql (see git history)
 
   const response = await fetch(`${DIRECTUS_ENDPOINT}/notifications`, {
     method: "POST",

@@ -28,7 +28,7 @@
   "dependencies": {
     "@adyen/adyen-web": "^5.16.2",
     "@adyen/api-library": "^11.0.0",
-    "@nydelic/toolbox": "^1.1.6",
+    "@nydelic/toolbox": "^1.2.0",
     "framer-motion": "^6.3.12",
     "graphql": "^16.5.0",
     "graphql-request": "^4.3.0",

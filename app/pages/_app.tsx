@@ -39,27 +39,10 @@ const MyApp = ({ Component, pageProps, router }: AppProps) => {
         <Link href={`/`}>
           <div className="nav-link">Kontakt</div>
         </Link>
-        {/* <Link href={`/contact`}>
-          <div className="nav-link">Contact</div>
-        </Link> */}
-        {/* <div className="nav-link">
-          <a
-            href="https://stoff.josias.me"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Store
-          </a>
-        </div> */}
       </Nav>
       <Component {...pageProps} key={router.asPath} />
     </>
   );
 };
-
-// export function reportWebVitals(metric: any) {
-//   // These metrics can be sent to any analytics service
-//   console.log(metric);
-// }
 
 export default MyApp;

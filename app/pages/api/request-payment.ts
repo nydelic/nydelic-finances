@@ -23,10 +23,9 @@ const requestPayment = async (req: NextApiRequest, res: NextApiResponse) => {
     }
 
     //  POLISH: filter/error for unpayed invoice to prevent calling multiple times
-    const { articlesSum, invoiceNr, invoice } =
-      await fetchInvoicePaymentDetails({
-        uuid: req.body.uuid,
-      });
+    const { articlesSum, invoice } = await fetchInvoicePaymentDetails({
+      uuid: req.body.uuid,
+    });
 
     const client = new Client({
       apiKey: ADYEN_CLIENT_API_KEY,
