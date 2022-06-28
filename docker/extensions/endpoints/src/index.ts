@@ -93,7 +93,7 @@ export default defineEndpoint((router, { database }) => {
             }
 
             // run actual business logic based on event code
-            return await handleEventCodes(
+            return handleEventCodes(
               eventCode,
               notificationRequestItem.NotificationRequestItem,
               invoiceID,
