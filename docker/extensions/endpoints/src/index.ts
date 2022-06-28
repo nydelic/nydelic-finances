@@ -119,7 +119,6 @@ export default defineEndpoint((router, { database }) => {
         throw new HttpRequestError("EUNKNOWN", 500, "An unknown error occured");
       }
     } catch (error) {
-      // BUG (instanceof HttpRequestError not working): investigate why this way ALL HttpRequestError are interpreted as "Error" isntead -> therefore showing the default 500 message instead of the original informal HttpRequestError
       return httpErrorResponse(res, error);
     }
   });
