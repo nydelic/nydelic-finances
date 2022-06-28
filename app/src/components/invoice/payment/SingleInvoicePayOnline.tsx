@@ -6,14 +6,21 @@ import {
   AiOutlineCreditCard,
 } from "react-icons/ai";
 import useAdyenCheckout from "hooks/useAdyenCheckout";
+import { useEffect, useRef } from "react";
 
 interface SingleInvoicePayOnlineProps {
   uuid: string;
+  onPaymentSuccess: () => void;
 }
 
 // POLISH keep checkout session loaded when users navigates somewhere else
 
-function SingleInvoicePayOnline({ uuid }: SingleInvoicePayOnlineProps) {
+function SingleInvoicePayOnline({
+  uuid,
+  onPaymentSuccess,
+}: SingleInvoicePayOnlineProps) {
+  const hasCalledSuccessHandler = useRef(false); // to avoid useEffect loops
+
   const {
     error,
     success,
@@ -23,6 +30,13 @@ function SingleInvoicePayOnline({ uuid }: SingleInvoicePayOnlineProps) {
     createSession,
     mountUi,
   } = useAdyenCheckout();
+
+  useEffect(() => {
+    if (success && !hasCalledSuccessHandler.current) {
+      hasCalledSuccessHandler.current = true;
+      onPaymentSuccess();
+    }
+  }, [success, onPaymentSuccess]);
 
   return (
     <div>

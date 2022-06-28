@@ -26,7 +26,8 @@ const InvoicePage = ({ invoice: invoiceProp }: InvoicePageProps) => {
   const returnSessionId = query.sessionId;
   const returnRedirectResult = query.redirectResult;
 
-  const [paymentDone, setPaymentDone] = useState(false);
+  const [paymentPending, setPaymentPending] = useState(false);
+  const [paymentReceived, setPaymentReceived] = useState(false);
   const [paymentProcess, setPaymentProccess] = useState<
     PaymentTypes | "return" | "none"
   >(returnSessionId && returnRedirectResult ? "return" : "none");
@@ -35,20 +36,21 @@ const InvoicePage = ({ invoice: invoiceProp }: InvoicePageProps) => {
   const invoice = useMemo(
     () => ({
       ...invoiceProp,
-      status: paymentDone ? "payment_pending" : invoiceProp.status,
+      status: paymentPending
+        ? "payment_pending"
+        : paymentReceived
+        ? "payment_received"
+        : invoiceProp.status,
       customer: {
         ...invoiceProp.customer,
         address: customerAddressData || invoiceProp.customer.address,
       },
     }),
-    [invoiceProp, paymentDone, customerAddressData]
+    [invoiceProp, paymentPending, paymentReceived, customerAddressData]
   );
   const invoiceNr = convertInvoiceDateToNr({
     invoiceDateString: invoice.create_date,
   });
-
-  // FIXME: Handle the redirect result (in FE): https://docs.adyen.com/online-payments/web-drop-in#handle-redirect-result
-  // FIXME wrong place ik - update invoice in FE after sucessfull payment to "payment_received"
 
   return (
     <>
@@ -84,8 +86,11 @@ const InvoicePage = ({ invoice: invoiceProp }: InvoicePageProps) => {
             invoice={invoice}
             invoiceNr={invoiceNr}
             onPaymentProccessChange={setPaymentProccess}
-            onPaymentDone={() => {
-              setPaymentDone(true);
+            onPaymentPending={() => {
+              setPaymentPending(true);
+            }}
+            onPaymentReceived={() => {
+              setPaymentReceived(true);
             }}
             onAddressFormFilled={(addressData) => {
               setCustomerAddressData(addressData);
