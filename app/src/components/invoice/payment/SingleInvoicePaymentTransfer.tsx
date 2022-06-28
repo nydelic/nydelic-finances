@@ -40,7 +40,22 @@ function SingleInvoicePaymentTransfer({
           folgende Schaltfläche nach erfolgreicher Erfassung des
           Zahlungsauftrages:
         </p>
-        {!statusCheckReceived ? (
+        {statusCheckReceived && (
+          <div className="flex items-center">
+            <AiOutlineBell className="flex-shrink-0 mr-4" />
+            <div className="flex-shrink">
+              {statusCheckReceived === "already-notified" ? (
+                <>Viele Dank, wir wurden bereits von Ihnen informiert</>
+              ) : (
+                <>
+                  Vielen Dank, wir haben eine Benachrichtigung erhalten und
+                  werden den Status so bald wie möglich prüfen
+                </>
+              )}
+            </div>
+          </div>
+        )}
+        {!statusCheckReceived && (
           <AsyncButton
             onClick={async () => {
               // await new Promise<void>((res) => {
@@ -73,20 +88,6 @@ function SingleInvoicePaymentTransfer({
           >
             Zahlungsauftrag erfasst
           </AsyncButton>
-        ) : (
-          <div className="flex items-center">
-            <AiOutlineBell className="flex-shrink-0 mr-4" />
-            <div className="flex-shrink">
-              {statusCheckReceived === "already-notified" ? (
-                <>Viele Dank, wir wurden bereits von Ihnen informiert</>
-              ) : (
-                <>
-                  Vielen Dank, wir haben eine Benachrichtigung erhalten und
-                  werden den Status so bald wie möglich prüfen
-                </>
-              )}
-            </div>
-          </div>
         )}
       </div>
     </>
