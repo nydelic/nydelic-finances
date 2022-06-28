@@ -22,7 +22,7 @@ function useAdyenCheckout() {
   > | null>(null);
 
   const createSession = useCallback(async (uuid: string) => {
-    // TODO: error handling
+    // POLISH set-up sentry for logging?
     const response = await fetch("/api/request-payment", {
       method: "POST",
       headers: {
@@ -55,29 +55,31 @@ function useAdyenCheckout() {
           enabled: true, // Set to false to not send analytics data to Adyen.
         },
         session: session,
-        onPaymentCompleted: (result: unknown, component: unknown) => {
-          // FIXME payment complete handling
+        onPaymentCompleted: (
+          result: { resultCode: "Authorised" | "Received" },
+          component: unknown
+        ) => {
           console.info(result, component);
-
-          setSuccess("Vielen Dank, Ihre Zahlung ist bei uns Eingetroffen!");
+          if (result.resultCode === "Authorised") {
+            setSuccess("Vielen Dank, Ihre Zahlung ist bei uns Eingetroffen!");
+          } else {
+            setError(
+              "Ein unbekannter Fehler ist aufgetrete, bitte versuchen Sie es später erneut."
+            );
+            if (result.resultCode !== "Received") {
+              // POLISH set-up sentry for logging?
+              console.error(result.resultCode);
+            }
+          }
         },
         onError: (error: unknown, component: unknown) => {
           console.error(error, component);
-          // FIXME error handling: https://docs.adyen.com/online-payments/web-drop-in#drop-in-error-handling
+          // POLISH set-up sentry for logging?
           setError(
             "Ein unbekannter Fehler ist aufgetrete, bitte versuchen Sie es später erneut."
           );
         },
-        // Any payment method specific configuration. Find the configuration specific to each payment method:  https://docs.adyen.com/payment-methods
-        // For example, this is 3D Secure configuration for cards:
-        // TODO: implement different payment methods
-        paymentMethodsConfiguration: {
-          card: {
-            hasHolderName: true,
-            holderNameRequired: true,
-            billingAddressRequired: true,
-          },
-        },
+
         showPayButton: false,
       });
 

@@ -24,7 +24,7 @@ async function handleEventCodes(
 ) {
   if (eventCode === NotificationRequestItem.EventCodeEnum["Authorisation"]) {
     if (notifReqItem.success !== NotificationRequestItem.SuccessEnum["True"]) {
-      // TODO: handle isntead of error throwing
+      // POLISH: handle with notification instead of throwing?
       throw new HttpRequestError(
         "EUNHANDELED_REJECTION",
         400,
@@ -64,6 +64,7 @@ async function handleEventCodes(
   }
 }
 
+// POLISH set-up sentry for logging?
 export default defineEndpoint((router, { database }) => {
   router.post("/", async (req, res) => {
     try {
@@ -92,7 +93,7 @@ export default defineEndpoint((router, { database }) => {
             }
 
             // run actual business logic based on event code
-            await handleEventCodes(
+            return await handleEventCodes(
               eventCode,
               notificationRequestItem.NotificationRequestItem,
               invoiceID,

@@ -24,7 +24,6 @@ const requestPayment = async (req: NextApiRequest, res: NextApiResponse) => {
       );
     }
 
-    //  POLISH: filter/error for unpayed invoice to prevent calling multiple times
     const { articlesSum, invoice } = await fetchInvoicePaymentDetails({
       uuid: req.body.uuid,
     });
@@ -49,10 +48,9 @@ const requestPayment = async (req: NextApiRequest, res: NextApiResponse) => {
       merchantAccount: ADYEN_MERCHANT_ACCOUNT,
       countryCode: invoice.customer.address?.country_code,
       shopperEmail: invoice.customer.email,
-      shopperReference: `customer-${invoice.customer.id}`, // POLISH use UUID isntead of number for primary key
+      shopperReference: `customer-${invoice.customer.id}`, // POLISH use UUID isntead of number for primary key of customers (then remove customer-* prefix)
     });
 
-    // POLISH catch errors different responses?
     return httpResponse(res, 200, "Succesfully created checkout session", {
       session: response,
     });
