@@ -5,15 +5,6 @@ import HttpRequestError from "utils/http/HttpRequestError";
 import { gql } from "graphql-request";
 import graphQLClient from "utils/graphQLClient";
 
-const validateEmail = (inputText: string) => {
-  const mailformat = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
-  if (inputText.match(mailformat)) {
-    return true;
-  } else {
-    return false;
-  }
-};
-
 const requestCustomerAddressChange = async (
   req: NextApiRequest,
   res: NextApiResponse
