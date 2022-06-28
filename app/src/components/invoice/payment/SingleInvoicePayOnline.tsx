@@ -7,11 +7,11 @@ import {
 } from "react-icons/ai";
 import useAdyenCheckout from "hooks/useAdyenCheckout";
 
-interface PayInvoiceProps {
+interface SingleInvoicePayOnlineProps {
   uuid: string;
 }
 
-function PayInvoice({ uuid }: PayInvoiceProps) {
+function SingleInvoicePayOnline({ uuid }: SingleInvoicePayOnlineProps) {
   const {
     error,
     success,
@@ -52,20 +52,19 @@ function PayInvoice({ uuid }: PayInvoiceProps) {
           </span>
         </div>
       )}
-      {sessionStarted && (error || success) ? (
-        <div
-          className={`flex items-center text-xs mb-4 ${
-            error ? "text-rose-700" : "text-emerald-700"
-          }`}
-        >
-          {error ? (
-            <AiOutlineCloseCircle className="flex-shrink-0 mr-4" />
-          ) : (
-            <AiOutlineCheckCircle className="flex-shrink-0 mr-4" />
-          )}
-          <div className="flex-shrink">{error || success}</div>
+      {sessionStarted && success && (
+        <div className="flex items-center text-xs mb-4 text-emerald-700">
+          <AiOutlineCheckCircle className="flex-shrink-0 mr-4" />
+          <div className="flex-shrink">{success}</div>
         </div>
-      ) : (
+      )}
+      {sessionStarted && error && (
+        <div className="flex items-center text-xs mb-4text-rose-700">
+          <AiOutlineCloseCircle className="flex-shrink-0 mr-4" />
+          <div className="flex-shrink">{error}</div>
+        </div>
+      )}
+      {sessionStarted && !error && !success && (
         <button
           type="submit"
           className="text-sm whitespace-nowrap py-2 px-3 rounded-md border border-black bg-black text-white text-center block w-full"
@@ -82,4 +81,4 @@ function PayInvoice({ uuid }: PayInvoiceProps) {
   );
 }
 
-export default PayInvoice;
+export default SingleInvoicePayOnline;

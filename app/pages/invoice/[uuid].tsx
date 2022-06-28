@@ -7,11 +7,11 @@ import convertInvoiceDateToNr from "utils/convertInvoiceDateToNr";
 import { InvoiceShape } from "shapes/invoice";
 import InvoicePayActions, {
   PaymentTypes,
-} from "components/invoice/InvoicePayActions";
+} from "components/invoice/payment/InvoicePayActions";
 import SingleInvoiceContainer from "components/invoice/SingleInvoiceContainer";
 import SingleInvoiceActions from "components/invoice/SingleInvoiceActions";
-import SingleInvoicePaymentStatus from "components/invoice/SingleInvoicePaymentStatus";
-import SingleInvoicePayment from "components/invoice/SingleInvoicePayment";
+import SingleInvoicePaymentStatus from "components/invoice/payment/SingleInvoicePaymentStatus";
+import SingleInvoicePayment from "components/invoice/payment/SingleInvoicePayment";
 import { useState, useMemo } from "react";
 import { AddressData } from "components/invoice/InvoiceAddressForm";
 
