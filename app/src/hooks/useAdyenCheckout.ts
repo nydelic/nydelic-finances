@@ -57,9 +57,9 @@ function useAdyenCheckout() {
         session: session,
         onPaymentCompleted: (
           result: { resultCode: "Authorised" | "Received" },
-          component: unknown
+          _component: unknown
         ) => {
-          console.info(result, component);
+          console.info(result, _component);
           if (result.resultCode === "Authorised") {
             setSuccess("Vielen Dank, Ihre Zahlung ist bei uns Eingetroffen!");
           } else {
@@ -72,8 +72,8 @@ function useAdyenCheckout() {
             }
           }
         },
-        onError: (error: unknown, component: unknown) => {
-          console.error(error, component);
+        onError: (_error: unknown, _component: unknown) => {
+          console.error(_error, _component);
           // POLISH set-up sentry for logging?
           setError(
             "Ein unbekannter Fehler ist aufgetrete, bitte versuchen Sie es später erneut."

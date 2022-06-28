@@ -1,6 +1,3 @@
-// import { gql } from "graphql-request";
-// import graphQLSystemClient from "./graphQLSystemClient";
-
 import throwIfUndefind from "./throwIfUndefind";
 
 export interface Notification {
