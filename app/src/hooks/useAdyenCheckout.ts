@@ -80,8 +80,6 @@ function useAdyenCheckout() {
         },
         showPayButton: false,
       });
-      // Access the available payment methods for the session.
-      console.log(checkout.paymentMethodsResponse); // => { paymentMethods: [...], storedPaymentMethods: [...] }
 
       // Create an instance of the Component and mount it to the container you created.
       adyenCheckoutRef.current = checkout

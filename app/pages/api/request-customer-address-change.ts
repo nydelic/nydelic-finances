@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import nextHttpResponse from "utils/http/nextHttpResponse";
-import nextHttpErrorResponse from "utils/http/nextHttpErrorResponse";
-import HttpRequestError from "utils/http/HttpRequestError";
+import HttpRequestError from "@nydelic/toolbox/dist/handlers/http/HttpRequestError";
+import httpResponse from "@nydelic/toolbox/dist/handlers/http/httpResponse";
+import httpErrorResponse from "@nydelic/toolbox/dist/handlers/http/httpErrorResponse";
 import { gql } from "graphql-request";
 import graphQLClient from "utils/graphQLClient";
 
@@ -138,7 +138,7 @@ const requestCustomerAddressChange = async (
         CUSTOMER_ID: customerId,
         ...addressVariables,
       });
-      return nextHttpResponse(
+      return httpResponse(
         res,
         201,
         "Customer address created",
@@ -180,15 +180,10 @@ const requestCustomerAddressChange = async (
         ADDRESS_ID: addressId,
         ...addressVariables,
       });
-      return nextHttpResponse(
-        res,
-        200,
-        "Customer address updated",
-        addressResult
-      );
+      return httpResponse(res, 200, "Customer address updated", addressResult);
     }
   } catch (error) {
-    return nextHttpErrorResponse(res, error);
+    return httpErrorResponse(res, error);
   }
 };
 

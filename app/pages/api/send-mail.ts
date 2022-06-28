@@ -1,9 +1,9 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import Nodemailer from "nodemailer";
-import nextHttpResponse from "utils/http/nextHttpResponse";
-import nextHttpErrorResponse from "utils/http/nextHttpErrorResponse";
+import HttpRequestError from "@nydelic/toolbox/dist/handlers/http/HttpRequestError";
+import httpResponse from "@nydelic/toolbox/dist/handlers/http/httpResponse";
+import httpErrorResponse from "@nydelic/toolbox/dist/handlers/http/httpErrorResponse";
 import throwIfUndefind from "utils/throwIfUndefind";
-import HttpRequestError from "utils/http/HttpRequestError";
 
 const GOOGLE_SMTP_AUTH_USER = throwIfUndefind(
   process.env.GOOGLE_SMTP_AUTH_USER
@@ -122,9 +122,9 @@ const sendMail = async (req: NextApiRequest, res: NextApiResponse) => {
       });
     }
 
-    return nextHttpResponse(res, 200, "Sssssht, email sent ;)");
+    return httpResponse(res, 200, "Sssssht, email sent ;)");
   } catch (error) {
-    return nextHttpErrorResponse(res, error);
+    return httpErrorResponse(res, error);
   }
 };
 

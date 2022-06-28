@@ -17,7 +17,7 @@ const DIRECTUS_GRAPHQL_BEARER = throwIfUndefind(
 );
 
 async function sendNotification(notification: Notification) {
-  // TODO: use graphql (see git history)
+  // TODO: use graphql (see git history) https://github.com/directus/directus/issues/14100
 
   const response = await fetch(`${DIRECTUS_ENDPOINT}/notifications`, {
     method: "POST",
@@ -35,8 +35,6 @@ async function sendNotification(notification: Notification) {
     }),
   });
   const json = await response.json();
-
-  console.log(json);
 }
 
 export default sendNotification;

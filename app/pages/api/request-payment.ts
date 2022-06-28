@@ -2,9 +2,9 @@ import { NextApiRequest, NextApiResponse } from "next";
 import { Client, CheckoutAPI } from "@adyen/api-library";
 import fetchInvoicePaymentDetails from "utils/fetchInvoicePaymentDetails";
 import throwIfUndefind from "utils/throwIfUndefind";
-import nextHttpErrorResponse from "utils/http/nextHttpErrorResponse";
-import nextHttpResponse from "utils/http/nextHttpResponse";
-import HttpRequestError from "utils/http/HttpRequestError";
+import HttpRequestError from "@nydelic/toolbox/dist/handlers/http/HttpRequestError";
+import httpResponse from "@nydelic/toolbox/dist/handlers/http/httpResponse";
+import httpErrorResponse from "@nydelic/toolbox/dist/handlers/http/httpErrorResponse";
 
 const ADYEN_CLIENT_API_KEY = throwIfUndefind(process.env.ADYEN_CLIENT_API_KEY);
 const ADYEN_MERCHANT_ACCOUNT = throwIfUndefind(
@@ -51,11 +51,11 @@ const requestPayment = async (req: NextApiRequest, res: NextApiResponse) => {
     });
 
     // POLISH catch errors different responses?
-    return nextHttpResponse(res, 200, "Succesfully created checkout session", {
+    return httpResponse(res, 200, "Succesfully created checkout session", {
       session: response,
     });
   } catch (error) {
-    return nextHttpErrorResponse(res, error);
+    return httpErrorResponse(res, error);
   }
 };
 

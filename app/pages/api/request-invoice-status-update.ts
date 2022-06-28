@@ -4,9 +4,9 @@ import { InvoiceShape } from "shapes/invoice";
 import graphQLClient from "utils/graphQLClient";
 import convertInvoiceDateToNr from "utils/convertInvoiceDateToNr";
 import sendNotification, { Notification } from "utils/sendNotification";
-import HttpRequestError from "utils/http/HttpRequestError";
-import nextHttpResponse from "utils/http/nextHttpResponse";
-import nextHttpErrorResponse from "utils/http/nextHttpErrorResponse";
+import HttpRequestError from "@nydelic/toolbox/dist/handlers/http/HttpRequestError";
+import httpResponse from "@nydelic/toolbox/dist/handlers/http/httpResponse";
+import httpErrorResponse from "@nydelic/toolbox/dist/handlers/http/httpErrorResponse";
 
 const CHECK_FOR_DID_PAY = "CHECK_FOR_DID_PAY"; // hey future me: if you want to export, move to seperate file otherwise error :)
 
@@ -22,18 +22,12 @@ async function updateInvoiceStatus(
       }
     }
   `;
-  const invoiceMutationResult: {
-    update_Invoice_item: {
-      status: InvoiceShape["status"];
-    };
-  } = await graphQLClient.request(mutation, {
+
+  await graphQLClient.request(mutation, {
     UUID: uuid,
     STATUS: newStatus,
   });
-
-  const notificationResults = await sendNotification(notification);
-
-  console.log(invoiceMutationResult, notificationResults);
+  await sendNotification(notification);
 }
 
 async function checkForDidPay(
@@ -134,14 +128,14 @@ const requestInvoiceStatusUpdate = async (
         oldInvoice.user_owner.id,
         oldInvoice.create_date
       );
-      return nextHttpResponse(
+      return httpResponse(
         res,
         200,
         "Request for invoice status change recieved"
       );
     }
   } catch (error) {
-    return nextHttpErrorResponse(res, error);
+    return httpErrorResponse(res, error);
   }
 };
 
