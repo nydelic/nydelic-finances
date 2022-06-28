@@ -14,26 +14,43 @@ import SingleInvoicePaymentStatus from "components/invoice/payment/SingleInvoice
 import SingleInvoicePayment from "components/invoice/payment/SingleInvoicePayment";
 import { useState, useMemo } from "react";
 import { AddressData } from "components/invoice/InvoiceAddressForm";
+import { useRouter } from "next/router";
+import PaymentReturn from "components/invoice/payment/PaymentReturn";
 
 export interface InvoicePageProps {
   invoice: InvoiceShape;
 }
 
 const InvoicePage = ({ invoice: invoiceProp }: InvoicePageProps) => {
-  const [paymentDone, setPaymentDone] = useState(false);
-  const [paymentProcess, setPaymentProccess] = useState<PaymentTypes>();
+  const { query } = useRouter();
+  const returnSessionId = query.sessionId;
+  const returnRedirectResult = query.redirectResult;
+
+  const [paymentPending, setPaymentPending] = useState(false);
+  const [paymentReceived, setPaymentReceived] = useState(false);
+  const [paymentProcess, setPaymentProccess] = useState<
+    PaymentTypes | "return" | "none"
+  >(returnSessionId && returnRedirectResult ? "return" : "none");
   const [customerAddressData, setCustomerAddressData] = useState<AddressData>();
+
+  let invoiceStatusOverride: InvoiceShape["status"] | null = null;
+  if (paymentPending) {
+    invoiceStatusOverride = "payment_received";
+  }
+  if (paymentReceived) {
+    invoiceStatusOverride = "payment_received";
+  }
 
   const invoice = useMemo(
     () => ({
       ...invoiceProp,
-      status: paymentDone ? "payment_pending" : invoiceProp.status,
+      status: invoiceStatusOverride || invoiceProp.status,
       customer: {
         ...invoiceProp.customer,
         address: customerAddressData || invoiceProp.customer.address,
       },
     }),
-    [invoiceProp, paymentDone, customerAddressData]
+    [invoiceProp, invoiceStatusOverride, customerAddressData]
   );
   const invoiceNr = convertInvoiceDateToNr({
     invoiceDateString: invoice.create_date,
@@ -46,20 +63,45 @@ const InvoicePage = ({ invoice: invoiceProp }: InvoicePageProps) => {
         <meta name="description" content="View your invoices by nydelic." />
       </Head>
       <SingleInvoiceContainer>
-        {paymentProcess ? (
+        {paymentProcess === "return" && (
+          <PaymentReturn
+            sessionId={returnSessionId}
+            redirectResult={returnRedirectResult}
+            invoiceNr={invoiceNr}
+            onClose={() => {
+              setPaymentProccess("none");
+
+              // remove now unused params
+              const params = new URLSearchParams(window.location.search);
+              params.delete("sessionId");
+              params.delete("redirectResult");
+
+              window.history.pushState(
+                null,
+                document.title,
+                `${window.location.pathname}?${params.toString()}`
+              );
+            }}
+          />
+        )}
+        {(paymentProcess === "transfer" || paymentProcess === "card") && (
           <SingleInvoicePayment
             activeType={paymentProcess}
             invoice={invoice}
             invoiceNr={invoiceNr}
             onPaymentProccessChange={setPaymentProccess}
-            onPaymentDone={() => {
-              setPaymentDone(true);
+            onPaymentPending={() => {
+              setPaymentPending(true);
+            }}
+            onPaymentReceived={() => {
+              setPaymentReceived(true);
             }}
             onAddressFormFilled={(addressData) => {
               setCustomerAddressData(addressData);
             }}
           />
-        ) : (
+        )}
+        {paymentProcess === "none" && (
           <>
             <SingleInvoiceActions>
               <SingleInvoicePaymentStatus invoice={invoice} />

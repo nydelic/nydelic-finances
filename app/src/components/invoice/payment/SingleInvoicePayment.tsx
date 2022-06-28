@@ -18,8 +18,9 @@ interface SingleInvoicePaymentProps {
   invoice: InvoiceShape;
   invoiceNr: string;
   activeType: PaymentTypes;
-  onPaymentProccessChange: (type?: PaymentTypes) => void;
-  onPaymentDone: () => void;
+  onPaymentProccessChange: (type: PaymentTypes | "none") => void;
+  onPaymentPending: () => void;
+  onPaymentReceived: () => void;
   onAddressFormFilled: InvoiceAddressFormProps["onAddressFormFilled"];
 }
 
@@ -28,7 +29,8 @@ function SingleInvoicePayment({
   invoiceNr,
   activeType,
   onPaymentProccessChange,
-  onPaymentDone,
+  onPaymentPending,
+  onPaymentReceived,
   onAddressFormFilled,
 }: SingleInvoicePaymentProps) {
   const { query } = useRouter();
@@ -40,7 +42,7 @@ function SingleInvoicePayment({
     <div
       className="whitespace-nowrap underline p-4 py-2 cursor-pointer"
       onClick={() => {
-        onPaymentProccessChange();
+        onPaymentProccessChange("none");
       }}
     >
       zurück <AiOutlineRollback className="inline-block" />
@@ -122,11 +124,14 @@ function SingleInvoicePayment({
           invoiceId={query.uuid}
           invoice={invoice}
           invoiceNr={invoiceNr}
-          onPaymentDone={onPaymentDone}
+          onPaymentPending={onPaymentPending}
         />
       ) : (
         <div className="border border-black rounded-md p-4">
-          <SingleInvoicePayOnline uuid={query.uuid} />
+          <SingleInvoicePayOnline
+            uuid={query.uuid}
+            onPaymentSuccess={onPaymentReceived}
+          />
         </div>
       )}
     </SingleInvoicePaymentContainer>

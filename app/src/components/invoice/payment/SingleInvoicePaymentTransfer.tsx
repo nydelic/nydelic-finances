@@ -8,14 +8,14 @@ interface SingleInvoicePaymentTransferProps {
   invoiceId: string;
   invoice: InvoiceShape;
   invoiceNr: string;
-  onPaymentDone: () => void;
+  onPaymentPending: () => void;
 }
 
 function SingleInvoicePaymentTransfer({
   invoiceId,
   invoice,
   invoiceNr,
-  onPaymentDone,
+  onPaymentPending,
 }: SingleInvoicePaymentTransferProps) {
   const [statusCheckReceived, setStatusCheckReceived] = useState<
     boolean | "already-notified"
@@ -78,7 +78,7 @@ function SingleInvoicePaymentTransfer({
               const json = await res.json();
               if (json.status === 200) {
                 setStatusCheckReceived(true);
-                onPaymentDone();
+                onPaymentPending();
               } else if (json?.data?.code === "EALREADY_NOTIFIED") {
                 setStatusCheckReceived("already-notified");
               } else {
