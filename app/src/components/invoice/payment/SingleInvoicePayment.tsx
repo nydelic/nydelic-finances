@@ -96,26 +96,29 @@ function SingleInvoicePayment({
         )
       }
       leftAction={
-        <div
-          className="whitespace-nowrap underline p-4 py-2 cursor-pointer text-stone-400"
-          onClick={() => {
-            onPaymentProccessChange(
-              activeType === "card" ? "transfer" : "card"
-            );
-          }}
-        >
-          {activeType === "card" ? (
-            <>
-              <AiOutlineBank className="inline-block mr-2" />
-              Zu QR Rechnung / Bank transfer wechseln
-            </>
-          ) : (
-            <>
-              <AiOutlineCreditCard className="inline-block mr-2" />
-              Zur Online-Zahlung wechseln
-            </>
-          )}
-        </div>
+        invoice.status !== "payment_received" ? (
+          <div
+            className="whitespace-nowrap underline p-4 py-2 cursor-pointer text-stone-400"
+            onClick={() => {
+              onPaymentProccessChange(
+                activeType === "card" ? "transfer" : "card"
+              );
+            }}
+          >
+            {activeType === "card" && (
+              <>
+                <AiOutlineBank className="inline-block mr-2" />
+                Zu QR Rechnung / Bank transfer wechseln
+              </>
+            )}
+            {activeType === "transfer" && (
+              <>
+                <AiOutlineCreditCard className="inline-block mr-2" />
+                Zur Online-Zahlung wechseln
+              </>
+            )}
+          </div>
+        ) : undefined
       }
       rightAction={BackAction}
     >
