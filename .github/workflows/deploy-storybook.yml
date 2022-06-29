@@ -23,7 +23,7 @@ jobs:
         with:
           node-version: 16
       - name: Store git remote origin URL in env var for later
-        run: GIT_URL=$(git config --get remote.origin.url)
+        run: echo "GIT_URL=$(git config --get remote.origin.url)"
       - name: Install dependencies
         run: npm ci
       - name: Build Storybook
