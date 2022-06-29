@@ -12,7 +12,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  build-and-deploy-storybook:
     runs-on: ubuntu-latest
     defaults:
       run:
