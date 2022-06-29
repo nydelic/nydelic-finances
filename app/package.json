@@ -28,7 +28,10 @@
     ]
   },
   "overrides": {
-    "webpack": "^5"
+    "webpack": "^5",
+    "@mdx-js/react": {
+      "react": "$react"
+    }
   },
   "dependencies": {
     "@adyen/adyen-web": "^5.16.2",
@@ -51,6 +54,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.18.6",
+    "@mdx-js/react": "^1.6.22",
     "@storybook/addon-actions": "^6.5.9",
     "@storybook/addon-essentials": "^6.5.9",
     "@storybook/addon-interactions": "^6.5.9",
