@@ -34,5 +34,7 @@ jobs:
           git checkout -b gh-pages
           git add .
           git commit -m "Deploy Storybook to GitHub Pages"
+          git config user.name "nydelic-bot"
+          git config user.email "nydelic-bot@nydelic.ch"
           git push --force --quiet $GIT_URL gh-pages:gh-pages
         working-directory: ./app/storybook-deploy
