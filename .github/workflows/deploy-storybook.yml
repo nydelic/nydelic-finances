@@ -32,10 +32,9 @@ jobs:
         run: |
           git init
           git checkout -b gh-pages
+          git config user.name "Nydelic GH Bot"
+          git config user.email "hello@ghbot.com"
           git add .
           git commit -m "Deploy Storybook to GitHub Pages"
-          git config user.name "GH Pages Bot"
-          git config user.email "hello@ghbot.com"
-          git config commit.gpgsign false
           git push --force --quiet $GIT_URL gh-pages:gh-pages
         working-directory: ./app/storybook-deploy
