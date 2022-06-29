@@ -1,3 +1,5 @@
+import "../src/assets/globals.css";
+
 // de-optimize NextJS: https://github.com/vercel/next.js/issues/18393#issuecomment-783269086
 import * as NextImage from "next/image";
 

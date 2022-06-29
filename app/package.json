@@ -27,6 +27,9 @@
       "last 1 safari version"
     ]
   },
+  "overrides": {
+    "webpack": "^5"
+  },
   "dependencies": {
     "@adyen/adyen-web": "^5.16.2",
     "@adyen/api-library": "^11.0.0",
@@ -52,6 +55,7 @@
     "@storybook/addon-essentials": "^6.5.9",
     "@storybook/addon-interactions": "^6.5.9",
     "@storybook/addon-links": "^6.5.9",
+    "@storybook/addon-postcss": "^2.0.0",
     "@storybook/builder-webpack5": "^6.5.9",
     "@storybook/manager-webpack5": "^6.5.9",
     "@storybook/react": "^6.5.9",
