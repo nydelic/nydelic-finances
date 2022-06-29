@@ -22,14 +22,13 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-      - name: Store git remote origin URL in env var for later
-        run: echo "GIT_URL=$(git config --get remote.origin.url)"
       - name: Install dependencies
         run: npm ci
       - name: Build Storybook
         run: npm run build-storybook -- -o ./storybook-deploy/app/storybook
       - name: Setup new Git repository and commit+push output files to it
         run: |
+          echo "GIT_URL=$(git config --get remote.origin.url)"
           git init
           git checkout -b gh-pages
           git config user.name "Nydelic GH Bot"
