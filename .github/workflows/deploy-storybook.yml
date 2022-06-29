@@ -1,0 +1,39 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Deploy Storybook to GH Pages
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "master" branch
+  push:
+    branches: [ "master" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: Store git remote origin URL in env var for later
+        run: GIT_URL=$(git config --get remote.origin.url)
+      - name: Navigate to Storybook directory
+        run: cd app
+      - name: Install dependencies
+        run: npm ci
+      - name: Build Storybook
+        run: npm run build-storybook -- -o ./storybook-deploy/app/storybook
+      - name: Navigate to generated output directory
+        run: cd storybook-deploy
+      - name: Setup new Git repository and commit+push output files to it
+        run: |
+          git init
+          git checkout -b gh-pages
+          git add .
+          git commit -m "Deploy Storybook to GitHub Pages"
+          git push --force --quiet $GIT_URL master:gh-pages
